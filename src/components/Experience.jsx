@@ -1,100 +1,71 @@
-import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
-
+import React, { useState } from "react";
+import ExperienceIcons from "./ExperienceIcons";
+import ExperienceDetails from "./ExperienceDetails";
 import { experiences } from "../data";
-import { SectionWrapper } from "../hoc";
+import { motion } from "framer-motion";
+import { textVariant } from "../utils/motion"; // Assuming textVariant is imported here
 import { styles } from "../styles";
-import { textVariant } from "../utils/motion";
-
-const ExperienceCard = ({ experience, onClick, isActive, isMobile }) => {
-  return (
-    <div
-      onClick={onClick}
-      className={`cursor-pointer sm:mb-5 p-5 max-w-xl relative sm:text-left text-center ${
-        isMobile ? "text-quaternary" : ""
-      }`}
-    >
-      {(isActive || isMobile) && (
-        <div className="absolute left-0 top-0 bottom-0 w-3 md:w-5 bg-tertiary my-6 sm:block hidden"></div>
-      )}
-      <h3
-        className={`text-xl lg:text-2xl xl:text-3xl font-bold sm:pl-8 ${
-          isActive || isMobile ? "text-quaternary" : "text-slate-600"
-        }`}
-      >
-        {experience.title}
-      </h3>
-      <p
-        className={`text-md lg:text-lg xl:text-2xl sm:font-medium pt-2 sm:pl-8 ${
-          isActive || isMobile ? "text-white" : "text-slate-600"
-        }`}
-      >
-        {experience.company_name} | {experience.date}
-      </p>
-    </div>
-  );
-};
-
-const ExperienceDetails = ({ experience }) => {
-  return (
-    <div className="mt-5">
-      <ul className="max-w-7xl list-none space-y-8 border-4 lg:border-8 rounded-xl lg:rounded-3xl p-6">
-        {experience.details.map((detail, index) => (
-          <li
-            key={`experience-detail-${index}`}
-            className="text-slate-500 font-semibold text-[10px] xs:text-[14px] md:text-[18px] lg:text-[22px] xl:text-[28px] lg:leading-[30px]"
-            dangerouslySetInnerHTML={{ __html: detail }}
-          />
-        ))}
-      </ul>
-    </div>
-  );
-};
 
 const Experience = () => {
-  const [selectedJob, setSelectedJob] = useState(experiences[0]);
-  const [isMobile, setIsMobile] = useState(false);
+  const [selectedExperience, setSelectedExperience] = useState(experiences[0]); // Default to first experience
+  const [openedExperiences, setOpenedExperiences] = useState(new Set([experiences[0].title])); // Mark first experience as opened by default
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-
-    handleResize(); // Check initial screen size
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const handleSelectExperience = (experience) => {
+    setSelectedExperience(experience);
+    setOpenedExperiences((prev) => new Set(prev).add(experience.title)); // Mark the experience as opened
+  };
 
   return (
-    <div className="sm:my-20">
-      <motion.div variants={textVariant()}>
-        <h2 className={`${styles.sectionText} text-center`}>
-          Experience
-        </h2>
+    <div className="flex flex-col max-w-7xl mx-auto h-full space-x-6" style={{ paddingTop: '50px' }}>
+      {/* Section Title */}
+      <motion.div className="md:text-left md:px-20 lg:px-20 "variants={textVariant()}>
+        <h2 className={`${styles.sectionText}`}>Experience</h2>
       </motion.div>
 
-      <div className="relative mt-10 md:mt-20 md:p-20 flex flex-col items-center sm:flex-row sm:items-start">
-        <div className="flex flex-col z-10 sm:w-auto sm:w-full">
+      <div className="flex max-w-7xl mx-auto h-full space-x-6">
+        {/* Left Column (1/3 of the space) */}
+        <div className="flex flex-col w-1/3 h-full overflow-y-auto pb-10 space-y-6">
           {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={`experience-${index}`}
-              experience={experience}
-              onClick={() => setSelectedJob(experience)}
-              isActive={selectedJob === experience}
-              isMobile={isMobile}
-            />
+            <div
+              key={index}
+              className={`p-4 cursor-pointer border-l-4 transition duration-300 ease-in-out rounded-lg m-5 ${
+                experience === selectedExperience
+                  ? "bg-gray-800 text-white border-yellow-500 shadow-[0_0_20px_gold]" // Active with gold glow
+                  : openedExperiences.has(experience.title)
+                  ? "bg-gray-800 text-white border-transparent shadow-md" // Gray for opened items
+                  : "bg-gray-400 text-slate-600 border-transparent" // Solid light grey for inactive items
+              } hover:text-white hover:border-yellow-500 hover:shadow-[0_0_20px_gold]`} // Add hover gold glow
+              onClick={() => handleSelectExperience(experience)}
+              style={{ marginBottom: '20px' }} // Ensure equal margin spacing at the bottom of each list item
+            >
+              <h3 className="text-lg font-bold">{experience.title}</h3>
+              <p className="text-sm">{experience.company_name}</p>
+              <p className="text-sm">{experience.date}</p>
+            </div>
           ))}
         </div>
 
-        <div className="flex justify-end z-10 sm:block hidden">
-          <ExperienceDetails experience={selectedJob} />
+        {/* Right Column (2/3 of the space) */}
+        <div className="w-2/3 pl-10">
+          <div
+            className="bg-gray-800 text-white rounded-lg p-10 shadow-2xl transition-all duration-300 ease-in-out transform"
+            style={{ transform: selectedExperience ? "scale(1.02)" : "scale(1)" }} // Subtle scale effect
+          >
+            <div className="mb-6">
+              {/* Pass the selected experience details */}
+              <ExperienceDetails details={selectedExperience?.details} />
+            </div>
+
+            {/* Centralized icons at the bottom */}
+            <div className="flex justify-center mt-6">
+              {/* Pass the selected experience icons */}
+              <ExperienceIcons icons={selectedExperience?.icons} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default SectionWrapper(Experience, "portfolio");
+export default Experience;

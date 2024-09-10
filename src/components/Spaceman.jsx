@@ -1,20 +1,29 @@
-import { useAnimations, useGLTF } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { useGLTF, useAnimations } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber"; // Corrected import for useFrame
 import { Suspense, useEffect, useRef, useState } from "react";
-import spacemanScene from "../assets/3d/spaceman.glb";
 import CanvasLoader from "./Loader";
+import spacemanScene from "../assets/3d/old_computer.glb";
 
-const Spaceman = ({ scale, position }) => {
+const Spaceman = ({ scale, position, rotationSpeed }) => {
   const spacemanRef = useRef();
   const { scene, animations } = useGLTF(spacemanScene);
   const { actions } = useAnimations(animations, spacemanRef);
 
+  // Apply the spinning effect using useFrame
+  useFrame((state, delta) => {
+    if (spacemanRef.current) {
+      spacemanRef.current.rotation.y += rotationSpeed * delta; // Rotate around the Y axis
+    }
+  });
+
   useEffect(() => {
-    actions["Idle"].play();
+    if (actions["Idle"]) {
+      actions["Idle"].play();
+    }
   }, [actions]);
 
   return (
-    <mesh ref={spacemanRef} position={position} scale={scale} rotation={[0, 2.2, 0]}>
+    <mesh ref={spacemanRef} position={position} scale={scale}>
       <primitive object={scene} />
     </mesh>
   );
@@ -23,7 +32,7 @@ const Spaceman = ({ scale, position }) => {
 const SpacemanCanvas = ({ scrollContainer }) => {
   const [rotationX, setRotationX] = useState(0);
   const [rotationY, setRotationY] = useState(0);
-  const [scale, setScale] = useState([2, 2, 2]);
+  const [scale, setScale] = useState([0.5, 0.5, 0.5]); // 25% of the original size
   const [position, setPosition] = useState([0.2, -0.7, 0]);
 
   useEffect(() => {
@@ -37,19 +46,19 @@ const SpacemanCanvas = ({ scrollContainer }) => {
 
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setScale([1, 1, 1]);
+        setScale([0.25, 0.25, 0.25]); // 25% of the original size
         setPosition([0.2, -0.1, 0]);
       } else if (window.innerWidth < 1024) {
-        setScale([1.33, 1.33, 1.33]);
+        setScale([0.33, 0.33, 0.33]); // 25% of the original size
         setPosition([0.2, -0.3, 0]);
       } else if (window.innerWidth < 1280) {
-        setScale([1.5, 1.5, 1.5]);
+        setScale([0.375, 0.375, 0.375]); // 25% of the original size
         setPosition([0.2, -0.4, 0]);
       } else if (window.innerWidth < 1536) {
-        setScale([1.66, 1.66, 1.66]);
+        setScale([0.415, 0.415, 0.415]); // 25% of the original size
         setPosition([0.2, -0.5, 0]);
       } else {
-        setScale([2, 2, 2]);
+        setScale([0.5, 0.5, 0.5]); // 25% of the original size
         setPosition([0.2, -0.7, 0]);
       }
     };
@@ -65,7 +74,7 @@ const SpacemanCanvas = ({ scrollContainer }) => {
   }, [scrollContainer]);
 
   return (
-    <Canvas className={`w-full h-screen bg-transparent z-10`} camera={{ near: 0.1, far: 1000 }}>
+    <Canvas className="w-full h-screen bg-transparent z-10" camera={{ near: 0.1, far: 1000 }}>
       <Suspense fallback={<CanvasLoader />}>
         <directionalLight position={[1, 1, 1]} intensity={2} />
         <ambientLight intensity={0.5} />
@@ -73,10 +82,17 @@ const SpacemanCanvas = ({ scrollContainer }) => {
         <spotLight position={[0, 50, 10]} angle={0.15} penumbra={1} intensity={2} />
         <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
 
-        <Spaceman rotationX={rotationX} rotationY={rotationY} scale={scale} position={position} />
+        <Spaceman
+          rotationX={rotationX}
+          rotationY={rotationY}
+          scale={scale}
+          position={position}
+          rotationSpeed={0.5} // Adjust this value to control the spinning speed
+        />
       </Suspense>
     </Canvas>
   );
 };
+
 
 export default SpacemanCanvas;

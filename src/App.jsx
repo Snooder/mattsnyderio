@@ -1,6 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { BrowserRouter } from "react-router-dom";
 import { Contact, Experience, Hero, Navbar, Portfolio } from "./components";
+import EventGallery from './components/EventGallery';
+import GithubShowcase from './components/GithubShowcase';
 
 const App = () => {
   const wrapperRef = useRef(null);
@@ -13,16 +15,19 @@ const App = () => {
           <div id="hero" className='z-10'>
             <Hero scrollContainer={wrapperRef} />
           </div>
+          <div id="experience" className='relative z-30 bg-primary'>
+            <Experience />
+          </div>
           <div id="portfolio" className='relative z-30 bg-primary mt-[-2px]'>
             <Portfolio />
           </div>
-          <div id="experience" className='relative z-30 bg-primary'>
-            <Experience />
+          <div id="events" className='relative z-30 bg-primary'>
+            <EventGallery />
           </div>
           <div id="contact" className='relative z-30 bg-primary'>
             <Contact />
           </div>
-        </div>
+        </div>  
       </div>
     </BrowserRouter>
   );
