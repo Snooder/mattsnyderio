@@ -28,11 +28,10 @@ const Spaceman = ({ scale, position, rotationSpeed }) => {
     </mesh>
   );
 };
-
 const SpacemanCanvas = ({ scrollContainer }) => {
   const [rotationX, setRotationX] = useState(0);
   const [rotationY, setRotationY] = useState(0);
-  const [scale, setScale] = useState([0.5, 0.5, 0.5]); // 25% of the original size
+  const [scale, setScale] = useState([1.5, 1.5, 1.5]); // Adjusted scale to make the object larger
   const [position, setPosition] = useState([0.2, -0.7, 0]);
 
   useEffect(() => {
@@ -46,19 +45,16 @@ const SpacemanCanvas = ({ scrollContainer }) => {
 
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setScale([0.25, 0.25, 0.25]); // 25% of the original size
+        setScale([.75, .75, .75]);
         setPosition([0.2, -0.1, 0]);
       } else if (window.innerWidth < 1024) {
-        setScale([0.33, 0.33, 0.33]); // 25% of the original size
+        setScale([0.5, 0.5, 0.5]);
         setPosition([0.2, -0.3, 0]);
       } else if (window.innerWidth < 1280) {
-        setScale([0.375, 0.375, 0.375]); // 25% of the original size
+        setScale([3, 3, 3]);
         setPosition([0.2, -0.4, 0]);
-      } else if (window.innerWidth < 1536) {
-        setScale([0.415, 0.415, 0.415]); // 25% of the original size
-        setPosition([0.2, -0.5, 0]);
       } else {
-        setScale([0.5, 0.5, 0.5]); // 25% of the original size
+        setScale([2, 2, 2]);
         setPosition([0.2, -0.7, 0]);
       }
     };
@@ -74,25 +70,26 @@ const SpacemanCanvas = ({ scrollContainer }) => {
   }, [scrollContainer]);
 
   return (
-    <Canvas className="w-full h-screen bg-transparent z-10" camera={{ near: 0.1, far: 1000 }}>
-      <Suspense fallback={<CanvasLoader />}>
-        <directionalLight position={[1, 1, 1]} intensity={2} />
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 5, 10]} intensity={2} />
-        <spotLight position={[0, 50, 10]} angle={0.15} penumbra={1} intensity={2} />
-        <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
+    <div className="sm:w-[500px] h-[800px] sm:h-[400px] "> {/* Set the height dynamically */}
+      <Canvas className="bg-transparent z-100 w-full h-full" camera={{ position: [0, 0, 20], fov: 30, near: 0.1, far: 1000 }}>
+        <Suspense fallback={<CanvasLoader />}>
+          <directionalLight position={[1, 1, 1]} intensity={2} />
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 5, 10]} intensity={2} />
+          <spotLight position={[0, 50, 10]} angle={0.15} penumbra={1} intensity={2} />
+          <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
 
-        <Spaceman
-          rotationX={rotationX}
-          rotationY={rotationY}
-          scale={scale}
-          position={position}
-          rotationSpeed={0.5} // Adjust this value to control the spinning speed
-        />
-      </Suspense>
-    </Canvas>
+          <Spaceman
+            rotationX={rotationX}
+            rotationY={rotationY}
+            scale={scale}
+            position={position}
+            rotationSpeed={0.5} // Adjust this value to control the spinning speed
+          />
+        </Suspense>
+      </Canvas>
+    </div>
   );
 };
-
 
 export default SpacemanCanvas;

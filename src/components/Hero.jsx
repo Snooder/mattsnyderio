@@ -3,29 +3,45 @@ import Position from "./Position";
 
 const Hero = ({ scrollContainer }) => {
   return (
-    <section className="parallax">
-      <div className='parallax__content absolute top-[10%] sm:top-[16%] lg:top-[24%] w-full mx-auto lg:pl-[38vh] lg:pr-[30vh] xl:pl-96 xl:pr-72 2xl:px-40 3xl:px-60 flex flex-col lg:flex-row items-start z-10'>
-        <div className="flex-1 lg:mb-0">
-          <h1 className='font-medium text-white text-[40px] xs:text-[50px] sm:text-[68px] md:text-[80px] lg:text-[100px] 2xl:text-[180px] leading-[110px] 2xl:leading-[160px]'>
-            MATT SNYDER
+    <section className="parallax relative">
+      {/* Content Container */}
+      <div className="mx-auto w-[100vw] h-full z-10 relative">         
+        {/* SpacemanCanvas - Absolute positioned, stays inside the box */}
+        <div className="absolute top-0 right-0 mt-[100px] mr-[100px]"> {/* Right-aligned */}
+            <SpacemanCanvas scrollContainer={scrollContainer} />
+        </div>
+        
+        {/* First Row - "MATT SNYDER" */}
+        <div className="text-left pt-20 pl-4 md:pr-12"> {/* Align properly with padding */}
+          <h1 className='font-medium text-white text-[60px] xs:text-[70px] sm:text-[120px]'>
+            MATT
           </h1>
+          <h1 className='font-medium text-white text-[60px] xs:text-[70px] sm:text-[120px] 2xl:text-[200px] leading-none'>
+            SNYDER
+          </h1>
+        </div>
+
+        {/* Second Row - Position text */}
+        <div className="hidden sm:block text-right lg:text-right pr-4"> {/* Proper padding from right */}
           <Position />
         </div>
-        <div className="flex-1 flex justify-start lg:justify-end mt-4 sm:mt-14 ml-8 xs:ml-[-4vh] sm:ml-[-17vh] md:ml-[-26vh] lg:mt-10 2xl:mt-0">
-          <div className='font-bold text-[20px] sm:text-[30px] md:text-[36px] 2xl:text-[46px] sm:leading-[40px] md:leading-[50px] 2xl:leading-[60px] streaky-glow max-w-sm 2xl:max-w-lg text-white text-left'>
-            I craft unqiue <br/> experiences for the digital world.
+
+        {/* Third Row - "I craft unique experiences..." */}
+        <div className="text-left sm:text-right pr-4"> {/* Text aligned and padded */}
+          <div className='font-bold text-[24px] sm:pt-[50px] sm:text-[34px] md:text-[40px] 2xl:text-[50px] sm:leading-[40px] md:leading-[50px] 2xl:leading-[60px] streaky-glow max-w-sm 2xl:max-w-lg text-white'>
+            I craft unique <br /> experiences for the digital world.
           </div>
         </div>
       </div>
+      
 
-      <img className="parallax__stars" src="./parallax/1Stars.svg" alt="" />
-      <img className="parallax__planets" src="./parallax/2Planets.svg" alt="" />
-      <img className="parallax__mountain1" src="./parallax/3Mountain.svg" alt="" />
-      <img className="parallax__mountain2" src="./parallax/4Mountain.svg" alt="" />
-      <img className="parallax__crater" src="./parallax/5Crater.svg" alt="" />
-      <img className="parallax__sun" src="./parallax/6Sun.svg" alt="" />
-
-      <SpacemanCanvas scrollContainer={scrollContainer} />
+      {/* Parallax Images */}
+      <img className="parallax__stars object-cover object-center" src="./parallax/1Stars.svg" alt="Stars" />
+      <img className="parallax__planets object-cover object-center" src="./parallax/2Planets.svg" alt="Planets" />
+      <img className="parallax__mountain1 object-cover object-center" src="./parallax/3Mountain.svg" alt="Mountain 1" />
+      <img className="parallax__mountain2 object-cover object-center" src="./parallax/4Mountain.svg" alt="Mountain 2" />
+      <img className="parallax__crater object-cover object-center" src="./parallax/5Crater.svg" alt="Crater" />
+      <img className="parallax__sun object-cover object-center" src="./parallax/6Sun.svg" alt="Sun" />
     </section>
   );
 };

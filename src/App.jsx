@@ -18,7 +18,7 @@ const App = () => {
           <div id="experience" className='relative z-30 bg-primary'>
             <Experience />
           </div>
-          <div id="portfolio" className='relative z-30 bg-primary mt-[-2px]'>
+          <div id="projects" className='relative z-30 bg-primary'>
             <Portfolio />
           </div>
           <div id="events" className='relative z-30 bg-primary'>
