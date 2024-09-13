@@ -23,11 +23,12 @@ const Spaceman = ({ scale, position, rotationSpeed }) => {
   }, [actions]);
 
   return (
-    <mesh ref={spacemanRef} position={position} scale={scale}>
+    <mesh ref={spacemanRef} position={position} scale={scale} pointerEvents="none"> {/* Enable pointer events */}
       <primitive object={scene} />
     </mesh>
   );
 };
+
 const SpacemanCanvas = ({ scrollContainer }) => {
   const [rotationX, setRotationX] = useState(0);
   const [rotationY, setRotationY] = useState(0);
@@ -45,16 +46,16 @@ const SpacemanCanvas = ({ scrollContainer }) => {
 
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setScale([.75, .75, .75]);
+        setScale([2, 2, 2]);
         setPosition([0.2, -0.1, 0]);
       } else if (window.innerWidth < 1024) {
         setScale([0.5, 0.5, 0.5]);
         setPosition([0.2, -0.3, 0]);
       } else if (window.innerWidth < 1280) {
-        setScale([3, 3, 3]);
+        setScale([1, 1, 1]);
         setPosition([0.2, -0.4, 0]);
       } else {
-        setScale([2, 2, 2]);
+        setScale([1, 1, 1]);
         setPosition([0.2, -0.7, 0]);
       }
     };
@@ -70,8 +71,8 @@ const SpacemanCanvas = ({ scrollContainer }) => {
   }, [scrollContainer]);
 
   return (
-    <div className="sm:w-[500px] h-[800px] sm:h-[400px] "> {/* Set the height dynamically */}
-      <Canvas className="bg-transparent z-100 w-full h-full" camera={{ position: [0, 0, 20], fov: 30, near: 0.1, far: 1000 }}>
+    <div className="relative z-10 w-[100vw] sm:w-[100vw] h-[100vw] sm:h-[100vw] pointer-events-none"> {/* Disable pointer events for the container */}
+      <Canvas className="z-50 bg-transparent w-full" camera={{ position: [0, 0, 30], fov: 30, near: 0.1, far: 1000 }}>
         <Suspense fallback={<CanvasLoader />}>
           <directionalLight position={[1, 1, 1]} intensity={2} />
           <ambientLight intensity={0.5} />

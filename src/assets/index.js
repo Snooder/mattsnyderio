@@ -14,6 +14,7 @@ import fun4 from "./fun4.png";
 import flatiron1 from "./flatiron1.png";
 import flatiron2 from "./flatiron2.png";
 import flatiron3 from "./flatiron3.png";
+import mattsnyderio from "./mattsnyderio.png";
 
-export { logo, menu, close, arizent, bethere, paywall, fun1, fun2, fun3, fun4, flatiron1, flatiron2, flatiron3, brightspot };
+export { mattsnyderio, logo, menu, close, arizent, bethere, paywall, fun1, fun2, fun3, fun4, flatiron1, flatiron2, flatiron3, brightspot };
 

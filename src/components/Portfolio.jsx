@@ -104,17 +104,53 @@ const ProjectCard = ({
 };
 
 const Portfolio = () => {
+  // Hook for GitHub section inView animation
+  const [githubRef, githubInView] = useInView({
+    threshold: 0.1, // Trigger when 10% of the section is visible
+    triggerOnce: true, // Trigger the animation only once
+  });
+
+  // Hook for Designs & Documents section inView animation
+  const [designsRef, designsInView] = useInView({
+    threshold: 0.1, // Trigger when 10% of the section is visible
+    triggerOnce: true, // Trigger the animation only once
+  });
+
   return (
-    <div className="text-center md:text-left md:px-20 lg:px-40">
-      <motion.div variants={textVariant()}>
-        <h2 className={`${styles.sectionText} text-center`}>Recent Projects</h2>
+    <div className="text-center">
+      {/* Motion div for the "GitHub & More" heading */}
+      <motion.div
+        ref={githubRef} // Reference to trigger animation when in view
+        className="xs:text-left xs:px-20 sm:px-20"
+        variants={textVariant()} // Apply text variant animation
+        initial="hidden"
+        animate={githubInView ? "show" : "hidden"} // Show when in view
+      >
+        <h2 className="text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold">
+          GitHub & More
+        </h2>
       </motion.div>
 
-      <div id="github" className="relative z-30 bg-primary">
+      {/* GitHub Showcase */}
+      <div className="relative z-30 bg-primary mt-10">
         <GithubShowcase />
       </div>
 
-      <div className="mt-10 md:mt-20 flex flex-col gap-10 md:gap-20">
+      {/* Motion div for the "Designs & Documents" heading */}
+      <motion.div
+        ref={designsRef} // Reference to trigger animation when in view
+        className="xs:text-left xs:px-20 sm:px-20"
+        variants={textVariant()} // Apply text variant animation
+        initial="hidden"
+        animate={designsInView ? "show" : "hidden"} // Show when in view
+      >
+        <h2 id="designs" className="mt-10 pt-10 text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold">
+          Designs & Documents
+        </h2>
+      </motion.div>
+
+      {/* Portfolio Projects Section */}
+      <div className="mt-10 flex flex-col gap-10 md:gap-20">
         {portfolio.map((project, index) => (
           <ProjectCard
             key={`project-${index}`}
@@ -122,7 +158,7 @@ const Portfolio = () => {
             name={project.name}
             description={project.description}
             image={project.image}
-            flowchartImage={project.flowchartImage} // Pass flowchartImage if available
+            flowchartImage={project.flowchartImage}
           />
         ))}
       </div>

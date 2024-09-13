@@ -9,27 +9,28 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className='relative z-0 bg-primary'>
+      <div className="relative z-0 bg-primary">
         <Navbar />
-        <div className='wrapper' ref={wrapperRef}>
-          <div id="hero" className='z-10'>
+        <main className="wrapper" ref={wrapperRef}>
+          <section id="hero" className="z-40">
             <Hero scrollContainer={wrapperRef} />
-          </div>
-          <div id="experience" className='relative z-30 bg-primary'>
+          </section>
+          <section id="experience" className="relative z-30 bg-primary">
             <Experience />
-          </div>
-          <div id="projects" className='relative z-30 bg-primary'>
+          </section>
+          <section id="portfolio" className="relative z-30 bg-primary">
             <Portfolio />
-          </div>
-          <div id="events" className='relative z-30 bg-primary'>
+          </section>
+          <section id="events" className="relative z-30 bg-primary">
             <EventGallery />
-          </div>
-          <div id="contact" className='relative z-30 bg-primary'>
+          </section>
+          <section id="contact" className="relative z-30 bg-primary">
             <Contact />
-          </div>
-        </div>  
+          </section>
+        </main>
       </div>
     </BrowserRouter>
+
   );
 };
 

@@ -6,7 +6,7 @@ import {
 } from "../assets";
 
 import {
-  flatiron1, flatiron2, flatiron3, fun4
+  flatiron1, flatiron2, flatiron3, fun4,
 } from "../assets";
 
 export const navLinks = [

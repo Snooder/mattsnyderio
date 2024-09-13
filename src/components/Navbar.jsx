@@ -59,7 +59,7 @@ const Navbar = () => {
 
   return (
     <nav className="absolute top-0 left-0 w-full fixed z-40 pointer-events-none transition-all duration-300 bg-transparent">
-      <div className="w-full max-w-7xl mx-auto flex items-center p-2 sm:px-16 sm:py-10 space-x-6">
+      <div className="w-full max-w-7xl flex items-center pl-2 sm:pl-2 sm:pt-2">
         {/* Group MS logo and Menu button together */}
         <div className="flex items-center" style={{ paddingBottom: window.innerWidth < 640 ? "65%" : "5%" }}> 
           {/* Logo */}
