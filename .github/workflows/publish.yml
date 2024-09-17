@@ -39,5 +39,3 @@ jobs:
           FOLDER: dist # Directory containing the build artifacts
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub token for authentication
           MESSAGE: "Build: ({sha}) {msg}" # Commit message for the build
-        with:
-          force: true
