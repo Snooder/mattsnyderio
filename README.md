@@ -4,7 +4,7 @@
 
 ## Introduction
 
-I recently forked a developer portfolio website to enhance my minimal portfolio and complement my GitHub profile and terminal website. This site represents the interactive, animated, and visually engaging experience I've been wanting to create for some time. It combines parallax effects and animations while keeping the design intuitive and user-friendly. The website offers potential clients and employers a quick, dynamic overview of who I am and the work I've done, showcasing not only the projects listed but also my ability to craft polished, interactive web experiences.
+I recently forked a developer portfolio website to enhance my minimal portfolio and complement my GitHub profile. This site represents the interactive, animated, and visually engaging experience I've been wanting to create for some time. It combines parallax effects and animations while keeping the design intuitive and user-friendly. The website offers potential clients and employers a quick, dynamic overview of who I am and the work I've done, showcasing not only the projects listed but also my ability to craft polished, interactive web experiences.
 
 ## Technologies
 - Vite - Build tool for the boilerplate and structure
