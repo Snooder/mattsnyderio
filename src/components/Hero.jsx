@@ -19,50 +19,61 @@ const Hero = ({ scrollContainer }) => {
     <>
       <style>{`
         .changing-words {
-          display: flex;
-          position: relative;
-          height: 1em;
-          white-space: nowrap; /* Prevent wrapping */
-          min-width: 200px;
-        }
+    display: flex;
+    position: relative;
+    white-space: nowrap;
+    min-width: 200px;
+    justify-content: flex-start;
+    align-items: center;
+    height: 1em;
+  }
 
-        .changing-words .word {
-          opacity: 0;
-          animation: fadeWords 6s linear infinite 0s;
-        }
+  .changing-words .word {
+    position: absolute;
+    opacity: 0;
+    animation: fadeWords 6s linear infinite 0s;
+  }
 
-        .changing-words .word:nth-child(1) {
-          animation-delay: 0s;
-        }
+  /* Small devices below sm */
+  @media (max-width: 640px) {
+    .changing-words {
+      justify-content: center; /* Center on small devices */
+      text-align: center;
+    }
+  }
 
-        .changing-words .word:nth-child(2) {
-          animation-delay: 2s;
-        }
+  .changing-words .word:nth-child(1) {
+    animation-delay: 0s;
+  }
 
-        .changing-words .word:nth-child(3) {
-          animation-delay: 4s;
-        }
+  .changing-words .word:nth-child(2) {
+    animation-delay: 2s;
+  }
 
-        @keyframes fadeWords {
-          0% {
-            opacity: 0;
-            transform: translateY(100%);
-          }
-          10% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          25% {
-            opacity: 1;
-          }
-          35% {
-            opacity: 0;
-            transform: translateY(-100%);
-          }
-          100% {
-            opacity: 0;
-          }
-        }
+  .changing-words .word:nth-child(3) {
+    animation-delay: 4s;
+  }
+
+  @keyframes fadeWords {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    25% {
+      opacity: 1;
+    }
+    35% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
       `}</style>
 
       <section className="parallax relative z-0">
@@ -90,13 +101,13 @@ const Hero = ({ scrollContainer }) => {
             </div>
 
             {/* Rotating words */}
-            <div className="ml-3 relative h-[50px] sm:h-[60px] md:h-[70px] 2xl:h-[80px]">
+            <div className="pl-5 relative h-[50px] sm:h-[60px] md:h-[70px] 2xl:h-[80px]">
               <div className="font-bold text-left text-[24px] sm:text-[34px] md:text-[40px] 2xl:text-[50px] sm:leading-[40px] md:leading-[50px] text-white relative">
                 <span className="block relative">
                   <span className="changing-words streaky-glow absolute inset-0 flex items-start justify-start">
-                  <span className="word" style={{ color: getRandomColor() }}>unique</span>
-                  <span className="word" style={{ color: getRandomColor() }}>captivating</span>
-                  <span className="word" style={{ color: getRandomColor() }}>life-changing</span>
+                    <span className="word" style={{ color: getRandomColor() }}>unique</span>
+                    <span className="word" style={{ color: getRandomColor() }}>captivating</span>
+                    <span className="word" style={{ color: getRandomColor() }}>life-changing</span>
                   </span>
                 </span>
               </div>
