@@ -93,7 +93,6 @@ const Hero = ({ scrollContainer }) => {
             </h1>
           </div>
 
-          {/* Adjusted Flex Grid for "I craft" and rotating words */}
           <div className="z-20 flex justify-center items-center pr-5 sm:pr-20 mt-[50px] sm:mt-[120px] w-[90vw] sm:w-[70vw] ml-auto mr-auto">
             {/* "I craft" Text */}
             <div className="font-bold text-right text-[24px] sm:text-[34px] md:text-[40px] 2xl:text-[50px] leading-[40px] sm:leading-[50px] streaky-glow text-white whitespace-nowrap">
@@ -101,7 +100,7 @@ const Hero = ({ scrollContainer }) => {
             </div>
 
             {/* Rotating words */}
-            <div className="pl-5 relative h-[50px] sm:h-[60px] md:h-[70px] 2xl:h-[80px]">
+            <div className="sm:ml-5 relative h-[50px] sm:h-[60px] md:h-[70px] 2xl:h-[80px]">
               <div className="font-bold text-left text-[24px] sm:text-[34px] md:text-[40px] 2xl:text-[50px] sm:leading-[40px] md:leading-[50px] text-white relative">
                 <span className="block relative">
                   <span className="changing-words streaky-glow absolute inset-0 flex items-start justify-start">
