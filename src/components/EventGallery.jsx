@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { events } from "../data";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer"; // Import the hook
+import { useInView } from "react-intersection-observer";
 
 // Bounce variant for image animation
 const bounceVariant = {
@@ -71,13 +71,13 @@ const EventGallery = () => {
         {/* Left Arrow */}
         <button
           onClick={handlePrevClick}
-          className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-700 hover:shadow-[0_0_15px_rgba(255,215,0,0.8)] transition flex items-center justify-center"
+          className="w-12 h-12 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-700 hover:shadow-[0_0_15px_rgba(255,215,0,0.8)] transition flex items-center justify-center"
         >
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
 
         {/* Thumbnails */}
-        <div className="flex justify-center space-x-4">
+        <div className="grid grid-cols-2 xs:grid-cols-2 sm:flex sm:justify-center sm:space-x-4">
           {events.map((event, index) => (
             <div
               key={index}
@@ -100,7 +100,7 @@ const EventGallery = () => {
         {/* Right Arrow */}
         <button
           onClick={handleNextClick}
-          className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-700 hover:shadow-[0_0_15px_rgba(255,215,0,0.8)] transition flex items-center justify-center"
+          className="w-12 h-12 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-700 hover:shadow-[0_0_15px_rgba(255,215,0,0.8)] transition flex items-center justify-center"
         >
           <FontAwesomeIcon icon={faArrowRight} />
         </button>
@@ -119,12 +119,12 @@ const EventGallery = () => {
         variants={bounceVariant} // Bounce animation for image
         initial="hidden"
         animate="show"
-        className="relative w-full mx-4"
+        className="relative w-full"
       >
         <img
           src={events[activeIndex].image}
           alt={events[activeIndex].title}
-          className="w-full h-auto sm:h-64 md:h-80 lg:h-96 object-cover rounded-lg shadow-[0_0_10px_rgba(128,128,128,0.6)] hover:shadow-[0_0_30px_rgba(255,215,0,1)] transition-all duration-300"
+          className="w-full object-cover rounded-lg shadow-[0_0_10px_rgba(128,128,128,0.6)] hover:shadow-[0_0_30px_rgba(255,215,0,1)] transition-all duration-300"
         />
       </motion.div>
     </div>

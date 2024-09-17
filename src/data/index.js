@@ -40,12 +40,36 @@ const experiences = [
       "Integrated tools such as SonarQube to ensure test coverage and maintain patient data integrity throughout the model lifecycle."
     ],
     icons: [
-      { name: "FaPython", label: "Python" },
-      { name: "FaAws", label: "AWS" },
-      { name: "FaDocker", label: "Docker" },
-      { name: "SiJenkins", label: "Jenkins" },
-      { name: "SiPytorch", label: "PyTorch" },
-      { name: "SiTerraform", label: "Terraform" }
+      {
+        name: "FaPython",
+        label: "Python",
+        description: "Maintained the Python CLI & API that allowed ML Model Builders to quickly evaluate and test experiments that predict and prevent the onset of life-threatening health conditions."
+      },
+      {
+        name: "FaAws",
+        label: "AWS",
+        description: "Monitored multiple server fleets of EC2, RDS, and ELB services that enabled Data Scientists to get model results back at record speeds."
+      },
+      {
+        name: "FaDocker",
+        label: "Docker",
+        description: "Packaged Python, Jupyter, and ML dependencies into Docker containers, allowing individual models to be tested before pushing to production."
+      },
+      {
+        name: "SiJenkins",
+        label: "Jenkins",
+        description: "Upgraded build pipelines with automatic testing via SonarCube, rigorously reduced build times by integrating with Jenkins Agents."
+      },
+      {
+        name: "SiPytorch",
+        label: "PyTorch",
+        description: "Routinely reviewed dozens of PyTorch models for breaking changes upon dependency upgrades eg. data drift and regression testing."
+      },
+      {
+        name: "SiTerraform",
+        label: "Terraform",
+        description: "Managed scaling of server fleets via Terraform (IoC), ensured platform stability from AWS, Databases, and Monitoring tools."
+      }
     ]
   },
   {
@@ -58,11 +82,31 @@ const experiences = [
       "Engineered platform enhancements, from backend Java services to frontend component development, improving system reliability and reducing downtime."
     ],
     icons: [
-      { name: "FaJava", label: "Java" },  // Corrected from DiJava to FaJava
-      { name: "SiMysql", label: "MySQL" },  // Corrected from DiMysql to SiMysql
-      { name: "FaDocker", label: "Docker" },
-      { name: "FaGit", label: "Git" },
-      { name: "FaGithub", label: "GitHub" }
+      {
+        name: "FaJava",
+        label: "Java",
+        description: "Developed on a Content Management System (CMS) written in Java with new Content Types, elegant frontend visuals, and commercial 3rd Party integrations."
+      },
+      {
+        name: "SiMysql",
+        label: "MySQL",
+        description: "Constructed new SQL Queries that utilized Indexing, stored procedures, and clever strategies to return results fast."
+      },
+      {
+        name: "FaDocker",
+        label: "Docker",
+        description: "Migrated build processes to Docker containers for faster testing and reducing costs of Jenkins builds."
+      },
+      {
+        name: "FaGit",
+        label: "Git",
+        description: "Developed Git CLI shortcuts for team use that enabled faster code branching and effortless code-reviews."
+      },
+      {
+        name: "FaGithub",
+        label: "GitHub",
+        description: "Instituted a peer-review system for the betterment of derisking technical Bus Factor."
+      }
     ]
   },
   {
@@ -76,10 +120,26 @@ const experiences = [
       "Successfully facilitated contracts with 20 businesses, ensuring client satisfaction through reliable and scalable solutions."
     ],
     icons: [
-      { name: "SiShopify", label: "Shopify" },  // Corrected from FaShopify to SiShopify
-      { name: "FaDatabase", label: "SQL" },
-      { name: "FaHtml5", label: "HTML" },
-      { name: "FaLinux", label: "Linux" }
+      {
+        name: "FaShopify",
+        label: "Shopify",
+        description: "I built tailored eCommerce solutions on the Shopify platform and automated over a dozen small businesses  to utilize a subscription-based model for their services."
+      },
+      {
+        name: "FaDatabase",
+        label: "SQL",
+        description: "Centralized customer events to a remote database service which allowed for faster responses than relying on Shopify's API."
+      },
+      {
+        name: "FaHtml5",
+        label: "HTML",
+        description: "Crafted dynamic and visually appealing interfaces with HTML and Shopify's Liquid syntax."
+      },
+      {
+        name: "FaLinux",
+        label: "Linux",
+        description: "Hosted remote services via Linux, allowing a robust and scalable infrastructure as more clients were onboarded."
+      }
     ]
   },
   {
@@ -92,11 +152,31 @@ const experiences = [
       "Redesigned HTML/CSS for the University Online Learning conference, utilizing Bootstrap for improved responsiveness and accessibility."
     ],
     icons: [
-      { name: "FaLinux", label: "Linux" },
-      { name: "FaHtml5", label: "HTML" },
-      { name: "FaCss3", label: "CSS" },
-      { name: "SiBootstrap", label: "Bootstrap" },  // Corrected from FaBootstrap to SiBootstrap
-      { name: "FaDrupal", label: "Drupal" },
+      {
+        name: "FaLinux",
+        label: "Linux",
+        description: "Gained practical experience in Linux system administration, employing shell scripting to automate tasks and optimize workflows."
+      },
+      {
+        name: "FaHtml5",
+        label: "HTML",
+        description: "Designed and implemented a user-friendly and visually appealing front-end interface for the university's online conference."
+      },
+      {
+        name: "FaCss3",
+        label: "CSS",
+        description: "Utilized CSS to optimize the visual design and user experience of the website, delivering a professional and aesthetically pleasing presentation."
+      },
+      {
+        name: "FaBootstrap",
+        label: "Bootstrap",
+        description: "Employed Bootstrap to develop a responsive and cross-platform compatible website, ensuring a consistent and optimal user experience across different devices."
+      },
+      {
+        name: "FaDrupal",
+        label: "Drupal",
+        description: "Played a key role in developing and maintaining internal employee tools using Drupal, resulting in streamlined workflows and enhanced efficiency."
+      }
     ]
   },
   {
@@ -109,12 +189,25 @@ const experiences = [
       "Minored in Digital Communications and Information Management (DCIM), focusing on the intersection of digital technology and communication."
     ],
     icons: [
-      { name: "FaPython", label: "Python" },
-      { name: "FaJava", label: "Java" },
-      { name: "FaLinux", label: "Linux" },
+      {
+        name: "FaPython",
+        label: "Python",
+        description: "Acquired a deep understanding of Python programming and successfully applied it to a variety of data analysis and machine learning projects."
+      },
+      {
+        name: "FaJava",
+        label: "Java",
+        description: "Built a strong foundation in software engineering by gaining practical experience with Java programming."
+      },
+      {
+        name: "FaLinux",
+        label: "Linux",
+        description: "Developed a solid understanding of Linux system administration, encompassing server management and troubleshooting techniques."
+      }
     ]
   }
 ];
+
 
 const portfolio = [
   {

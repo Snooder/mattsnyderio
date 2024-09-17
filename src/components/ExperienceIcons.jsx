@@ -11,7 +11,11 @@ import {
     FaJava,
   } from 'react-icons/fa';
   import { SiJenkins, SiPytorch, SiTerraform } from 'react-icons/si';
-  
+  import { SiMysql } from "react-icons/si";
+  import { FaDatabase } from "react-icons/fa";
+  import { FaShopify } from "react-icons/fa";
+  import { FaBootstrap } from "react-icons/fa";
+
   const IconComponents = {
     FaPython,
     FaAws,
@@ -26,6 +30,10 @@ import {
     SiJenkins,
     SiPytorch,
     SiTerraform,
+    SiMysql,
+    FaDatabase,
+    FaShopify,
+    FaBootstrap
   };
   
   const ExperienceIcons = ({ icons = [] }) => (

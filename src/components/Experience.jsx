@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import ExperienceIcons from "./ExperienceIcons";
-import ExperienceDetails from "./ExperienceDetails";
 import { experiences } from "../data";
 import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
-import { styles } from "../styles";
 import { useInView } from "react-intersection-observer";
 
 const Experience = () => {
@@ -19,7 +17,7 @@ const Experience = () => {
 
   // Hook to handle visibility and animations
   const [ref, inView] = useInView({
-    threshold: 0.1,    // Trigger when 10% of the element is visible
+    threshold: 0.1, // Trigger when 10% of the element is visible
   });
 
   return (
@@ -65,19 +63,28 @@ const Experience = () => {
         </div>
 
         {/* Right Column (Experience Details Panel) */}
-        <div className="w-[100vw] sm:w-8/12 h-auto sm:h-full xs:pl-10 sm:pl-5">
+        <div className="w-[100vw] sm:w-8/12 h-auto sm:h-full xs:pl-10 sm:pl-0 sm:pr-5">
           <div
-            className="bg-gray-800 text-white rounded-lg p-6 shadow-2xl transition-all duration-300 ease-in-out transform h-full max-w-[800px] mx-auto"
+            className="ml-5 mr-5 bg-gray-800 text-white rounded-lg p-6 shadow-2xl transition-all duration-300 ease-in-out transform h-full max-w-[800px] mx-auto"
             style={{ transform: selectedExperience ? "scale(1.02)" : "scale(1)" }}
           >
-            {/* Icons at the top */}
-            <div className="flex justify-center mb-6">
-              <ExperienceIcons icons={selectedExperience?.icons} className="icon-border" />
-            </div>
+            {/* Flex container for Icons and Descriptions */}
+            <div className="flex flex-col gap-4">
+              {selectedExperience.icons.map((icon, index) => (
+                <div key={index} className="flex flex-row items-start gap-4">
+                  {/* Icon on the left */}
+                  <div className="flex-shrink-0">
+                    <ExperienceIcons icons={[icon]} className="icon-border" />
+                  </div>
 
-            {/* Details Section */}
-            <div className="mt-6">
-              <ExperienceDetails details={selectedExperience?.details} />
+                  {/* Description on the right */}
+                  <div className="flex-grow">
+                    <p className="text-sm sm:text-base md:text-lg">
+                      {icon.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

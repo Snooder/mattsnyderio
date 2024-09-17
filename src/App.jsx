@@ -15,13 +15,13 @@ const App = () => {
           <section id="hero" className="z-40">
             <Hero scrollContainer={wrapperRef} />
           </section>
-          <section id="experience" className="relative z-30 bg-primary">
+          <section id="experience" className="relative z-30 mb-8 bg-primary">
             <Experience />
           </section>
-          <section id="portfolio" className="relative z-30 bg-primary">
+          <section id="github" className="relative z-30 mb-8 bg-primary">
             <Portfolio />
           </section>
-          <section id="events" className="relative z-30 bg-primary">
+          <section id="events" className="relative z-30 mb-8 bg-primary">
             <EventGallery />
           </section>
           <section id="contact" className="relative z-30 bg-primary">

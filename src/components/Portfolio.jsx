@@ -41,7 +41,7 @@ const ProjectCard = ({
       animate={controls}
       initial="hidden"
       variants={fadeIn("up", "spring", 0, 0.75)}
-      className={`flex ${flexDirectionClass} gap-6 w-full max-w-7xl mx-auto`} // Tailwind-based layout
+      className={`flex ${flexDirectionClass} gap-6 w-full max-w-7xl mx-auto p-4 md:p-6`} // Added padding for the project card
       onMouseEnter={() => flowchartImage && setIsFlipped(true)} // Only flip if flowchart exists
       onMouseLeave={() => setIsFlipped(false)} // Reset on mouse leave
     >
@@ -117,11 +117,11 @@ const Portfolio = () => {
   });
 
   return (
-    <div className="text-center">
+    <div className="text-center p-6 md:p-12"> {/* Added padding for the entire portfolio section */}
       {/* Motion div for the "GitHub & More" heading */}
       <motion.div
         ref={githubRef} // Reference to trigger animation when in view
-        className="xs:text-left xs:px-20 sm:px-20"
+        className="xs:text-left xs:px-20 sm:px-20 mb-8" // Added bottom margin
         variants={textVariant()} // Apply text variant animation
         initial="hidden"
         animate={githubInView ? "show" : "hidden"} // Show when in view
@@ -139,12 +139,12 @@ const Portfolio = () => {
       {/* Motion div for the "Designs & Documents" heading */}
       <motion.div
         ref={designsRef} // Reference to trigger animation when in view
-        className="xs:text-left xs:px-20 sm:px-20"
+        className="xs:text-left xs:px-20 sm:px-20 mt-10 pt-10 mb-8" // Added bottom margin
         variants={textVariant()} // Apply text variant animation
         initial="hidden"
         animate={designsInView ? "show" : "hidden"} // Show when in view
       >
-        <h2 id="designs" className="mt-10 pt-10 text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold">
+        <h2 className="text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold">
           Designs & Documents
         </h2>
       </motion.div>

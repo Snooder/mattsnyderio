@@ -13,7 +13,7 @@ const Contact = () => {
   }, [controls]);
 
   return (
-    <div className="flex flex-col justify-center items-center text-center mt-20"> {/* Removed h-screen and added mt-20 */}
+    <div className="flex flex-col justify-center items-center text-center mt-20 mb-20"> {/* Removed h-screen and added mt-20 */}
       <motion.div
         initial="hidden"
         animate={controls}
