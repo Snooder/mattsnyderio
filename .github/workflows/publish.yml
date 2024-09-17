@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-  workflow_dispatch: # This allows manual triggering of the workflow
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 permissions:
   contents: write
@@ -14,20 +14,28 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Push
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Step 2: Install project dependencies
       - name: Install all dependencies
         run: npm install
 
+      # Step 3: Run the build command
       - name: Build
-        run: npm run build # The build command of your project
+        run: npm run build
 
+      # Step 4: Debugging - List the contents of the project root to verify the `dist` folder
+      - name: List directory contents
+        run: ls -la # List the contents of the current directory to verify `dist` folder
+
+      # Step 5: Push build artifacts to the 'build' branch
       - name: Push to build branch
         uses: s0/git-publish-subdir-action@develop
         env:
-          REPO: self
-          BRANCH: build # The branch name where you want to push the assets
-          FOLDER: dist # The directory where your assets are generated
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-          MESSAGE: "Build: ({sha}) {msg}" # The commit message
+          REPO: self # This points to the same repository
+          BRANCH: build # Branch to push the built files (create if it doesn't exist)
+          FOLDER: dist # Directory containing the build artifacts
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub token for authentication
+          MESSAGE: "Build: ({sha}) {msg}" # Commit message for the build
