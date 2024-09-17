@@ -1,4 +1,3 @@
-import { SpacemanCanvas } from ".";
 import Position from "./Position";
 import { mattsnyderio } from "../assets";
 
@@ -106,7 +105,7 @@ const Hero = ({ scrollContainer }) => {
                   <span className="changing-words streaky-glow absolute inset-0 flex items-start justify-start">
                     <span className="word" style={{ color: getRandomColor() }}>unique</span>
                     <span className="word" style={{ color: getRandomColor() }}>captivating</span>
-                    <span className="word" style={{ color: getRandomColor() }}>life-changing</span>
+                    <span className="word" style={{ color: getRandomColor() }}>exhilarating</span>
                   </span>
                 </span>
               </div>
