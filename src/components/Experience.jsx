@@ -4,12 +4,13 @@ import { experiences } from "../data";
 import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
 import { useInView } from "react-intersection-observer";
+import JiggleSpinComponent from "./JiggleSpinComponent"; // Import the JiggleSpinComponent
 
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState(experiences[0]);
   const [openedExperiences, setOpenedExperiences] = useState(new Set([experiences[0].title]));
 
-  // Function to handle selecting experience
+  // Handle selecting an experience
   const handleSelectExperience = (experience) => {
     setSelectedExperience(experience);
     setOpenedExperiences((prev) => new Set(prev).add(experience.title));
@@ -30,7 +31,6 @@ const Experience = () => {
         initial="hidden"
         animate={inView ? "show" : "hidden"} // Animate based on whether it's in view
       >
-        {/* Heading with responsive text sizes */}
         <h2 className="text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold">
           Experience
         </h2>
@@ -72,9 +72,20 @@ const Experience = () => {
             <div className="flex flex-col gap-4">
               {selectedExperience.icons.map((icon, index) => (
                 <div key={index} className="flex flex-row items-start gap-4">
-                  {/* Icon on the left */}
+                  {/* Conditionally render JiggleSpinComponent for Shopify */}
                   <div className="flex-shrink-0">
-                    <ExperienceIcons icons={[icon]} className="icon-border" />
+                    {icon.label === "Shopify" ? (
+                      <JiggleSpinComponent
+                        
+                        color="green"
+                        eggColor="green"
+                        animationDuration={4000}
+                      >
+                        <ExperienceIcons icons={[icon]} className="icon-border" />
+                        </JiggleSpinComponent>
+                    ) : (
+                      <ExperienceIcons icons={[icon]} className="icon-border" />
+                    )}
                   </div>
 
                   {/* Description on the right */}

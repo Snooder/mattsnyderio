@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { githubRepos } from "../data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faStar, faCodeBranch, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faCodeBranch } from "@fortawesome/free-solid-svg-icons";
+import JiggleSpinComponent from "./JiggleSpinComponent";
 
 const GithubShowcase = () => {
   const [selectedLanguageIndex, setSelectedLanguageIndex] = useState(0);
@@ -11,7 +12,6 @@ const GithubShowcase = () => {
   const selectedLanguage = languages[selectedLanguageIndex];
   const repos = githubRepos[selectedLanguage];
 
-  // Handle navigating to next language group and wrap around at the end
   const handleNextLanguage = () => {
     setAnimate(true);
     setTimeout(() => {
@@ -23,17 +23,16 @@ const GithubShowcase = () => {
   return (
     <div className="container mx-auto px-6 py-4">
       <div className="flex flex-col md:px-20">
-        {/* Language List - Floating Buttons with Right Arrow */}
+        {/* Language List */}
         <div className="relative w-full p-5 bg-gray-800 text-white rounded-lg flex flex-col items-center">
-          {/* Languages as Floating Buttons */}
           <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full px-4 pb-8">
             {languages.map((language, index) => (
               <li
                 key={index}
                 className={`cursor-pointer p-3 bg-gray-700 rounded-lg transition-transform transform hover:-translate-y-1 text-center text-sm truncate ${
                   selectedLanguage === language
-                    ? "text-yellow-400 shadow-[0_0_15px_rgba(255,215,0,0.8)]" // Active tab with golden shadow
-                    : "text-white hover:text-yellow-300 shadow-lg" // Non-active tab with hover effect
+                    ? "text-yellow-400 shadow-[0_0_15px_rgba(255,215,0,0.8)]"
+                    : "text-white hover:text-yellow-300 shadow-lg"
                 }`}
                 onClick={() => {
                   setAnimate(true);
@@ -48,23 +47,26 @@ const GithubShowcase = () => {
             ))}
           </ul>
 
-          {/* GitHub Icon and Username - Positioned at the Bottom Right of the Technology List */}
+          {/* GitHub Icon and Username */}
           <div className="absolute bottom-2 right-4 flex p-2 items-center justify-end">
-            <a
-              href="https://github.com/snooder"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center text-white hover:text-yellow-300"
-            >
-              <FontAwesomeIcon icon={faGithub} className="text-2xl mr-2" />
-              <span className="font-semibold">snooder</span>
-            </a>
+          
+              <a
+                href="https://github.com/snooder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="github-flex items-center text-white hover:text-green-300"
+              >
+                <FontAwesomeIcon icon={faGithub} className="text-2xl mr-2" />
+              </a>
+              <JiggleSpinComponent>
+                <span className="font-semibold">snooder</span>
+              </JiggleSpinComponent>
           </div>
         </div>
 
-        {/* Repositories List - Floating Cards with Bounce and Fade-in Effect */}
+        {/* Repositories List */}
         <div className="w-full p-5 text-white sm:rounded-lg">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"> {/* Modified to show 2 columns on md devices */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {repos.map((repo, index) => (
               <div
                 key={index}
@@ -118,6 +120,29 @@ const GithubShowcase = () => {
           </div>
         </div>
       </div>
+
+      {/* Jiggle and Glow Effect for GitHub Link */}
+      <style jsx>{`
+        @keyframes jiggle {
+          0%, 100% {
+            transform: translateX(0);
+          }
+          25% {
+            transform: translateX(-3px);
+          }
+          50% {
+            transform: translateX(3px);
+          }
+          75% {
+            transform: translateX(-3px);
+          }
+        }
+
+        .github-jiggle-link:hover {
+          animation: jiggle 0.5s ease-in-out infinite;
+          text-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 1);
+        }
+      `}</style>
     </div>
   );
 };

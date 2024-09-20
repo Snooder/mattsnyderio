@@ -15,6 +15,8 @@ import {
   import { FaDatabase } from "react-icons/fa";
   import { FaShopify } from "react-icons/fa";
   import { FaBootstrap } from "react-icons/fa";
+  import { FaEgg } from "react-icons/fa6";
+  import { MdOutlineEgg } from "react-icons/md";
 
   const IconComponents = {
     FaPython,
@@ -33,7 +35,9 @@ import {
     SiMysql,
     FaDatabase,
     FaShopify,
-    FaBootstrap
+    FaBootstrap,
+    FaEgg,
+    MdOutlineEgg
   };
   
   const ExperienceIcons = ({ icons = [] }) => (

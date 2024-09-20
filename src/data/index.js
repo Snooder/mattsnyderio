@@ -211,9 +211,9 @@ const experiences = [
 
 const portfolio = [
   {
-    name: "Arizent: Social Merchandising",
+    name: "BrightSpot: Social Merchandising Plugin",
     description:
-      "A tool developed to help writers and editors expand their work and social networks by promoting the process of sharing popular content across platforms.",
+      "A SaaS tool developed to help writers and editors expand their social reach by dynamically promoting the popular content across publication platforms.",
     image: arizent,
     flowchartImage: brightspot,
   },
@@ -265,7 +265,7 @@ const events = [
 const githubRepos = {
   JavaScript: [
     {
-      name: "WeatherApp",
+      name: "WeatherOrNot",
       visibility: "Private",
       description: "JavaScript project that focuses on weather forecasting, using Docker, Node.js, and React.",
       lastUpdated: "Updated last week",
@@ -315,16 +315,22 @@ const githubRepos = {
       lastUpdated: "Updated 2 weeks ago",
     },
     {
-      name: "osrsplugintracker",
-      visibility: "Private",
-      description: "Python-based solution for tracking OSRS plugins, leveraging Python and OSRS APIs.",
-      lastUpdated: "Updated on Mar 6",
+      name: "OCRDigitData",
+      visibility: "Public",
+      description: "Machine learning project that identifies digit shapes using a Naive Bayes classifier in Python.",
+      lastUpdated: "Updated on Mar 26, 2020",
     },
     {
       name: "Kalman2D",
       visibility: "Public",
       description: "Python project focused on machine learning triangulation using Kalman filters.",
       lastUpdated: "Updated on Apr 15, 2020",
+    },
+    {
+      name: "osrsplugintracker",
+      visibility: "Private",
+      description: "Python-based solution for tracking OSRS plugins, leveraging Python and OSRS APIs.",
+      lastUpdated: "Updated on Mar 6",
     },
     {
       name: "Beanstalk",
@@ -340,14 +346,8 @@ const githubRepos = {
     },
     {
       name: "ShopifyBotTagger",
-      visibility: "Public",
+      visibility: "Private",
       description: "Python-based solution that integrates Shopify customer data with SQL databases.",
-      lastUpdated: "Updated on Mar 26, 2020",
-    },
-    {
-      name: "OCRDigitData",
-      visibility: "Public",
-      description: "Machine learning project that identifies digit shapes using a Naive Bayes classifier in Python.",
       lastUpdated: "Updated on Mar 26, 2020",
     },
     {
