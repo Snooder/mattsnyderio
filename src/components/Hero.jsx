@@ -55,7 +55,7 @@ const Hero = () => {
             <div className="font-bold text-right text-[24px] sm:text-[34px] md:text-[40px] 2xl:text-[50px] leading-[40px] sm:leading-[50px] streaky-glow text-white whitespace-nowrap">
               I craft
             </div>
-            <div className="sm:ml-5 relative h-[50px] sm:h-[60px] md:h-[70px] 2xl:h-[80px]">
+            <div className="ml-5 relative h-[50px] sm:h-[60px] md:h-[70px] 2xl:h-[80px]">
               <div className="font-bold text-left text-[24px] sm:text-[34px] md:text-[40px] 2xl:text-[50px] sm:leading-[40px] md:leading-[50px] text-white relative">
                 <HeroChangingWords words={words} colors={colors} />
               </div>
