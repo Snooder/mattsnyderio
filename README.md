@@ -1,10 +1,16 @@
 # Matt Snyder Portfolio Website
 
-![Matt Snyder Portfolio Thumbnai](https://github.com/user-attachments/assets/0b559042-2c3d-482b-b7b2-62f71551f17d)
+![Matt Snyder Portfolio Thumbnai](https://github.com/user-attachments/assets/53c3eb4f-039a-4a8d-a52d-b01acb20a8b4)
 
 ## Introduction
 
-I recently forked a developer portfolio website to enhance my minimal portfolio and complement my GitHub profile. This site represents the interactive, animated, and visually engaging experience I've been wanting to create for some time. It combines parallax effects and animations while keeping the design intuitive and user-friendly. The website offers potential clients and employers a quick, dynamic overview of who I am and the work I've done, showcasing not only the projects listed but also my ability to craft polished, interactive web experiences.
+I recently forked a developer portfolio website to enhance my minimal portfolio and complement my GitHub profile. 
+
+This site represents the interactive, animated, and visually engaging experience I've been wanting to create for some time. It combines parallax effects and animations while keeping the design intuitive and user-friendly. 
+
+The website offers potential clients and employers a quick, dynamic overview of who I am and the work I've done, showcasing not only the projects listed but also my ability to craft polished, interactive web experiences.
+
+Try to find all my hidden eggs, there's a special surprise waiting for you at the end. No cheating! ;D
 
 ## Technologies
 - Vite - Build tool for the boilerplate and structure!
