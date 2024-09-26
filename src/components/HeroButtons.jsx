@@ -3,6 +3,13 @@ import JiggleSpinComponent from './JiggleSpinComponent'; // Ensure you import th
 import { mattsnyderio } from '../assets'; // Make sure the image path is correct
 
 const HeroButtons = () => {
+  const handleButtonClick = (anchor) => {
+    const targetElement = document.getElementById(anchor);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
       {/* Left Column of Buttons */}
@@ -14,10 +21,10 @@ const HeroButtons = () => {
           Experience
         </button>
         <button
-          onClick={() => handleButtonClick("designs")}
+          onClick={() => handleButtonClick("saas")}
           className="bg-opacity-80 bg-gray-800 text-white font-bold py-8 px-4 rounded-lg hover:bg-gray-700 transition shadow-[0_0_10px_rgba(128,128,128,0.6)] hover:shadow-[0_0_15px_rgba(255,215,0,0.8),0_0_30px_rgba(255,215,0,0.6)]"
         >
-          Designs
+          SaaS Products
         </button>
       </div>
 

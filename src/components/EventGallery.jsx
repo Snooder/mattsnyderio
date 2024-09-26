@@ -4,6 +4,7 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { events } from "../data";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import JiggleSpinComponent from "./JiggleSpinComponent"; // JiggleSpin Component for Chelsea Piers, NYC
 
 // Bounce variant for image animation
 const bounceVariant = {
@@ -61,7 +62,7 @@ const EventGallery = () => {
         initial="hidden"
         animate={eventGalleryInView ? "show" : "hidden"} // Trigger animation only when in view
       >
-        <h2 className="text-center text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10">
+        <h2 className="text-center text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10 filter drop-shadow-[0_0_20px_rgba(128,0,128,1)]">
           Event Gallery
         </h2>
       </motion.div>
@@ -107,8 +108,14 @@ const EventGallery = () => {
       </div>
 
       {/* Event Details underneath the thumbnails */}
-      <div className="text-white mb-6 text-center">
-        <h3 className="text-xl font-bold">{events[activeIndex].title}</h3>
+      <div className="text-white mb-6 text-center flex flex-col items-center justify-center">
+        {events[activeIndex].title === "Flatiron Health | All-Hands 2023 (Team Zelda)" ? (
+          <JiggleSpinComponent shadowColor="rgba(128,0,128,0.8)" eggColor="purple">
+            <h3 className="text-xl font-bold">{events[activeIndex].title}</h3>
+          </JiggleSpinComponent>
+        ) : (
+          <h3 className="text-xl font-bold">{events[activeIndex].title}</h3>
+        )}
         <p className="text-md">{events[activeIndex].location}</p>
         <p className="text-sm">{events[activeIndex].date}</p>
       </div>

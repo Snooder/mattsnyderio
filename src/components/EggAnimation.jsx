@@ -1,43 +1,62 @@
-import React from 'react';
-import { FaEgg } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { FaEgg } from "react-icons/fa";
 
-const EggAnimation = ({ eggVisible }) => {
-  if (!eggVisible) return null;
+const EggAnimation = ({ color = "yellow", triggerEgg }) => {
+  const [eggVisible, setEggVisible] = useState(false);
+
+  // Function to trigger the animation
+  const startAnimation = () => {
+    setEggVisible(true);
+    const timer = setTimeout(() => {
+      setEggVisible(false); // Hide the egg after 4 seconds
+    }, 4000);
+
+    return () => clearTimeout(timer); // Clean up timeout on unmount or reset
+  };
+
+  // Destructure visible and color from triggerEgg to avoid object reference issues
+  const { visible, color: eggColor } = triggerEgg;
+
+  // Run animation whenever triggerEgg's `visible` changes to true
+  useEffect(() => {
+    if (visible) {
+      startAnimation(); // Start the animation if `visible` is true
+    }
+  }, [visible]); // Only trigger the effect when `visible` changes
 
   return (
-    <div className="egg-animation">
-      <FaEgg size={50} color="yellow" />
+    <>
+      {eggVisible && (
+        <div className="egg-animation">
+          <FaEgg style={{ fontSize: "35px", color: eggColor }} />
+        </div>
+      )}
+
       <style jsx>{`
-        @keyframes fadeIn {
-          0% {
-            opacity: 0;
-            transform: translateX(0);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideLeft {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-500px); /* Adjust the value based on how far left you want the egg to move */
-          }
-        }
-
         .egg-animation {
-          position: absolute;
-          top: 10px; /* Adjust based on where the top of your row is */
-          left: 50%;
-          transform: translateX(-50%);
           opacity: 0;
-          animation: fadeIn 2s ease-in-out forwards, slideLeft 3s ease-in-out 2s; /* Start sliding after 2 seconds of fading in */
+          transform: scale(0.5);
+          display: block;
+          animation: fade-in-out 4s ease-in-out forwards;
+          z-index: 1000;
+        }
+
+        @keyframes fade-in-out {
+          0% {
+            transform: scale(0.5);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(0.7);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(0.7);
+            opacity: 0;
+          }
         }
       `}</style>
-    </div>
+    </>
   );
 };
 

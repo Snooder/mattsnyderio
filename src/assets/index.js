@@ -16,6 +16,11 @@ import flatiron2 from "./flatiron2.png";
 import flatiron3 from "./flatiron3.png";
 import mattsnyderio from "./mattsnyderio.png";
 import mattsnyderio_profile from "./mattsnyderio_profile.png"
+import flatiron_logo from "./flatiron_logo.png"
+import arizent_logo from "./arizent_logo.png"
+import freelance_logo from "./freelance_logo.png"
+import rutgers_logo from "./rutgers_logo.png"
+import newbrunswick_logo from "./newbrunswick_logo.png"
 
-export { mattsnyderio, mattsnyderio_profile, logo, menu, close, arizent, bethere, paywall, fun1, fun2, fun3, fun4, flatiron1, flatiron2, flatiron3, brightspot };
+export { mattsnyderio, mattsnyderio_profile, logo, menu, close, arizent, bethere, paywall, fun1, fun2, fun3, fun4, flatiron1, flatiron2, flatiron3, brightspot, flatiron_logo,arizent_logo,freelance_logo,rutgers_logo,newbrunswick_logo};
 

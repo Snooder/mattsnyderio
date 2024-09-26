@@ -2,7 +2,6 @@ import { motion, useAnimation } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
-import { portfolio } from "../data";
 import { SectionWrapper } from "../hoc";
 import { styles } from "../styles";
 import { fadeIn, textVariant } from "../utils/motion";
@@ -134,33 +133,6 @@ const Portfolio = () => {
       {/* GitHub Showcase */}
       <div className="relative z-30 bg-primary mt-10">
         <GithubShowcase />
-      </div>
-
-      {/* Motion div for the "Designs & Documents" heading */}
-      <motion.div
-        ref={designsRef} // Reference to trigger animation when in view
-        className="xs:text-left xs:px-20 sm:px-20 mt-10 pt-10 mb-8" // Added bottom margin
-        variants={textVariant()} // Apply text variant animation
-        initial="hidden"
-        animate={designsInView ? "show" : "hidden"} // Show when in view
-      >
-        <h2 className="text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold">
-          Designs & Documents
-        </h2>
-      </motion.div>
-
-      {/* Portfolio Projects Section */}
-      <div className="mt-10 flex flex-col gap-10 md:gap-20">
-        {portfolio.map((project, index) => (
-          <ProjectCard
-            key={`project-${index}`}
-            index={index}
-            name={project.name}
-            description={project.description}
-            image={project.image}
-            flowchartImage={project.flowchartImage}
-          />
-        ))}
       </div>
     </div>
   );

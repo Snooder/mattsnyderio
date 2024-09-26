@@ -28,7 +28,7 @@ const Hero = () => {
       <section className="parallax relative z-0">
         <div className="relative mx-auto w-[100vw] h-full z-20 mt-5">
           {/* First Row - "Hi, my name is" */}
-          <div className="z-20 text-left pt-10 pr-10 pl-6 sm:pl-7 sm:pt-35 sm:pr-4">
+          <div className="z-20 text-left pt-10 pr-10 pl-3 sm:pl-7 sm:pt-35 sm:pr-4">
             <h2 className="font-medium text-white text-[30px] sm:text-[50px] mx-auto">
               Hi, my name is
             </h2>

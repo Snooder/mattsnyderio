@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { HashLink as Link } from "react-router-hash-link"; // Import HashLink
 
 const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
@@ -13,24 +13,11 @@ const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
     { id: "contact", title: "Contact" },
   ];
 
-  // Close menu on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      if (menuOpen) {
-        setMenuOpen(false);
-        setShowGradient(false);
-        setStartAnimation(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [menuOpen]);
-
-  // Toggle the menu open/close state
   const toggleMenu = () => {
+    console.log('Menu clicked!');
     setMenuOpen((prevMenuOpen) => {
       const newMenuState = !prevMenuOpen;
-      setShowGradient(newMenuState); // Show gradient if menu opens
+      setShowGradient(newMenuState); 
       setTimeout(() => setStartAnimation(newMenuState), 100);
       return newMenuState;
     });
@@ -38,10 +25,10 @@ const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
 
   // Handle navigation click and smooth scroll
   const handleNavClick = (navId) => {
-    setActive(navId); // Set active state for current section
-    setMenuOpen(false); // Close menu after click
+    toggleMenu(); // Close menu after click
     setShowGradient(false);
     setStartAnimation(false);
+    setActive(navId); // Set active link
   };
 
   return (
@@ -60,7 +47,7 @@ const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
 
       <button onClick={toggleMenu} className="text-white text-[18px] font-bold z-20">
         <span
-          className={`transition-transform duration-300 ${
+          className={`inline-block transition-transform duration-300 transform ${
             menuOpen ? "-rotate-90" : "rotate-0"
           }`}
         >

@@ -1,21 +1,30 @@
 import React, { useState } from "react";
-import NavbarDropdown from "./NavbarDropdown";
 import EggProgress from "./EggProgress";
+import NavbarDropdown from "./NavbarDropdown";
+import EggAnimation from "./EggAnimation";
+import { useEggContext } from "../context/EggContext";
 
 const Navbar = () => {
-  const [active, setActive] = useState("hero");
-  const [menuOpen, setMenuOpen] = useState(false); // State to control menu open/close
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { eggAnimation, triggerEggAnimation } = useEggContext(); // Context control for egg animations
 
   return (
     <div className="relative">
-      <nav className="w-full fixed top-0 z-10 flex justify-between items-center px-4 py-2">
-        <div className="flex items-center">
-          {/* NavbarDropdown for MS and arrow */}
-          <NavbarDropdown active={active} setActive={setActive} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <nav className="w-full fixed top-0 z-10 flex justify-between items-center px-2 py-2" > 
+        <div className="flex items-center space-x-4 relative"> {/* Added 'relative' to position the egg inside */}
+          <NavbarDropdown menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+
+          {/* Manually trigger Egg Animation */}
+          <EggAnimation 
+            color={eggAnimation?.color || "yellow"} 
+            triggerEgg={eggAnimation} 
+            className="absolute top-1/2 transform -translate-y-1/2"
+
+          />
         </div>
 
-        {/* Eggs on the right, visible only when the menu is open */}
-        <EggProgress menuOpen={menuOpen} />
+        {/* EggProgress */}
+        {menuOpen && <EggProgress eggsFound={[]} />}
       </nav>
     </div>
   );

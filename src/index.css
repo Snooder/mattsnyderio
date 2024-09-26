@@ -50,6 +50,7 @@
 
 .parallax > * {
   grid-area: stack;
+  max-height: 400vh;
   animation: parallax linear;
   animation-timeline: scroll();
 }
