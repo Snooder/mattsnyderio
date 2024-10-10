@@ -24,6 +24,8 @@ jobs:
 
       # Step 3: Run the build command
       - name: Build
+        env: 
+          VITE_GA_TRACKING_ID: ${{VITE_GA_TRACKING_ID}}
         run: npm run build
 
       # Step 4: Debugging - List the contents of the dist directory
