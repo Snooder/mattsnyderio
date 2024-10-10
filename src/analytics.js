@@ -1,9 +1,14 @@
 import ReactGA from "react-ga4";
 
-// Initialize Google Analytics
+// Initialize Google Analytics using Vite environment variable
 export const initGA = () => {
-  ReactGA.initialize("G-C5Y22VFQS1"); // Replace with your GA4 Tracking ID
-  console.log("Google Analytics Initialized with Tracking ID: G-C5Y22VFQS1");
+  const trackingID = import.meta.env.VITE_GA_TRACKING_ID; // Access Vite environment variable
+  if (trackingID) {
+    ReactGA.initialize(trackingID);
+    console.log("Google Analytics Initialized with Tracking ID:", trackingID);
+  } else {
+    console.warn("Google Analytics Tracking ID not set. Please define VITE_GA_TRACKING_ID in .env.");
+  }
 };
 
 // Log page views (when navigating between pages)

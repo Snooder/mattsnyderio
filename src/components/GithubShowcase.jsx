@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faStar, faCodeBranch } from "@fortawesome/free-solid-svg-icons";
 import JiggleSpinComponent from "./JiggleSpinComponent";
-import { githubRepos } from "../data"; // Assuming the repo data is in ../data
-import { textVariant, fadeIn } from "../utils/motion"; // Assuming motion utils are in ../utils/motion
+import { githubRepos } from "../data";
+import { textVariant, fadeIn } from "../utils/motion";
+import { logEvent } from "../analytics"; // Import logEvent for logging interactions
 
 const GithubShowcase = () => {
   const [selectedLanguageIndex, setSelectedLanguageIndex] = useState(0);
@@ -14,26 +15,26 @@ const GithubShowcase = () => {
   const selectedLanguage = languages[selectedLanguageIndex];
   const repos = githubRepos[selectedLanguage];
 
-  // Animation hooks for GitHub & More title
   const [ref, inView] = useInView({
     threshold: 0.1,
-    triggerOnce: true, // Only animate once when in view
+    triggerOnce: true,
   });
 
-  // Handle changing the selected language
-  const handleNextLanguage = () => {
-    setSelectedLanguageIndex((prev) => (prev + 1) % languages.length);
+  // Handle changing the selected language and log the event
+  const handleLanguageClick = (index, language) => {
+    setSelectedLanguageIndex(index);
+    logEvent("Language Switch", "Change", language); // Log the language switch
   };
 
-  return (    
+  return (
     <div className="container mx-auto px-6 py-4">
       {/* Motion div for the "GitHub & More" title with blue glow */}
       <motion.div
         ref={ref}
         className="xs:text-left xs:px-20 sm:px-20"
-        variants={textVariant()} // Apply the text animation
+        variants={textVariant()}
         initial="hidden"
-        animate={inView ? "show" : "hidden"} // Only show animation when in view
+        animate={inView ? "show" : "hidden"}
       >
         <h2 className="text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold filter drop-shadow-[0_0_20px_rgba(0,0,255,1)]">
           GitHub & More
@@ -51,7 +52,7 @@ const GithubShowcase = () => {
                   ? "text-yellow-400 shadow-[0_0_15px_rgba(255,215,0,0.8)]"
                   : "text-white hover:text-yellow-300 shadow-lg"
               }`}
-              onClick={() => setSelectedLanguageIndex(index)}
+              onClick={() => handleLanguageClick(index, language)} // Log event when a language is clicked
             >
               {language}
             </li>
@@ -78,7 +79,7 @@ const GithubShowcase = () => {
       <div className="w-full p-5 text-white sm:rounded-lg mt-8">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-          variants={fadeIn("up", "spring", 0, 0.75)} // Apply fade in animation to the repos
+          variants={fadeIn("up", "spring", 0, 0.75)}
           initial="hidden"
           animate="show"
         >
@@ -103,6 +104,7 @@ const GithubShowcase = () => {
                       href={`https://github.com/snooder/${repo.name}`}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => logEvent("Repository", "Click", repo.name)} // Log event for repo clicks
                     >
                       {repo.name}
                     </a>
@@ -110,9 +112,7 @@ const GithubShowcase = () => {
                     repo.name
                   )}
                 </h3>
-                <p className="text-sm text-gray-300 pt-2">
-                  {repo.description}
-                </p>
+                <p className="text-sm text-gray-300 pt-2">{repo.description}</p>
               </div>
 
               {/* GitHub Stats Icons */}

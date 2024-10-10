@@ -9,7 +9,7 @@ const ProgressButton = ({ onClick }) => {
 
   return (
     <a href="#hero" className="prize-button" onClick={handleClick}>
-      Enjoy your prize
+      Well done! Enjoy your prize!
       <style jsx>{`
         .prize-button {
           display: inline-block;

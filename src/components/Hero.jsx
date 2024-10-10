@@ -5,10 +5,10 @@ import HeroButtons from "./HeroButtons";
 import ParallaxImages from "./ParallaxImages";
 import JiggleSpinComponent from './JiggleSpinComponent'; // Import the JiggleSpinComponent
 
-const Hero = () => {
+const Hero = (active, setActive) => {
   const colors = ["#FF5733", "#33FF57", "#3357FF", "#F0E68C", "#8A2BE2", "#FF69B4"];
   const words = ["unique", "captivating", "exhilarating"];
-
+  
   const handleButtonClick = (anchor) => {
     const targetElement = document.getElementById(anchor);
     if (targetElement) {
@@ -70,7 +70,7 @@ const Hero = () => {
           {/* Button Navigation */}
           <div className="z-20 flex justify-center w-full bg-transparent mt-[30px] sm:mt-[100px]">
             <div className="max-w-7xl px-4 sm:px-6 lg:px-8">
-              <HeroButtons onClickHandlers={onClickHandlers} />
+              <HeroButtons active={active} setActive={setActive} onClickHandlers={onClickHandlers} />
             </div>
           </div>
         </div>

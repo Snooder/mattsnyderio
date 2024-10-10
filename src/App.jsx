@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Contact, Experience, Hero, Navbar, Portfolio} from "./components";
 import EventGallery from "./components/EventGallery";
@@ -10,6 +10,7 @@ import SaaSProducts from "./components/SaaSProducts";
 
 const App = () => {
   const wrapperRef = useRef(null);
+  const [active, setActive] = useState("hero"); // State to track the active navigation item
 
   // useEffect to initialize Google Analytics and log the initial page view
   useEffect(() => {
@@ -22,10 +23,10 @@ const App = () => {
       {/* Wrap the whole app in EggProvider to provide context to child components */}
       <BrowserRouter>
         <div className="relative z-0 bg-primary">
-          <Navbar />
+          <Navbar active={active} setActive={setActive}/>
           <main className="wrapper" ref={wrapperRef}>
             <section id="hero" className="z-40">
-              <Hero scrollContainer={wrapperRef} />
+              <Hero active={active} setActive={setActive} scrollContainer={wrapperRef} />
             </section>
             <section id="experience" className="relative z-30 mb-8 bg-primary">
               <Experience />

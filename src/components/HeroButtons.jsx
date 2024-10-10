@@ -4,11 +4,12 @@ import { mattsnyderio } from "../assets"; // Ensure the path to your image is co
 import { logEvent } from "../analytics"; // Import logEvent from analytics.js
 import { HashLink as Link } from "react-router-hash-link"; // For smooth scrolling
 
-const HeroButtons = () => {
+const HeroButtons = ({active, setActive}) => {
   // Handle Button Click Navigation and Analytics
   const handleButtonClick = (section) => {
     logEvent("Hero Section", "Click", section); // Log event to analytics
     document.getElementById(section)?.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to section
+    setActive({section})
   };
 
   return (

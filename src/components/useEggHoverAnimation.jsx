@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { logEvent } from "../analytics"; // Import the logEvent function
+import { useState, useEffect } from 'react';
 
 const useEggHoverAnimation = (animationDuration = 2000) => {
   const [hovering, setHovering] = useState(false);
@@ -23,11 +22,7 @@ const useEggHoverAnimation = (animationDuration = 2000) => {
     if (hovering) {
       timer = setTimeout(() => {
         setAnimationComplete(true);
-        setEggVisible(true);
-
-        // Track egg visibility event when it becomes visible
-        logEvent("Egg Animation", "Egg Visible", "Egg became visible after animation");
-      }, animationDuration); // Triggered after the specified animation duration (4 seconds)
+      }, animationDuration);  // Wait for the animation duration
     }
 
     return () => clearTimeout(timer);

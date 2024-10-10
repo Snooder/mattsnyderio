@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { HashLink as Link } from "react-router-hash-link"; // Import HashLink
+import { HashLink as Link } from "react-router-hash-link";
+import { logEvent } from "../analytics"; // Assume analytics.js contains a logEvent function
 
 const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
-  const [showGradient, setShowGradient] = useState(false); // State to control gradient visibility
-  const [startAnimation, setStartAnimation] = useState(false); // State to control when to start the fade-in animation
+  const [showGradient, setShowGradient] = useState(false);
+  const [startAnimation, setStartAnimation] = useState(false);
 
   const navLinks = [
     { id: "hero", title: "Home" },
@@ -15,21 +16,24 @@ const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
   ];
 
   const toggleMenu = () => {
-    console.log('Menu clicked!');
     setMenuOpen((prevMenuOpen) => {
       const newMenuState = !prevMenuOpen;
-      setShowGradient(newMenuState); 
+      setShowGradient(newMenuState);
       setTimeout(() => setStartAnimation(newMenuState), 100);
       return newMenuState;
     });
   };
 
-  // Handle navigation click and smooth scroll
-  const handleNavClick = (navId) => {
-    toggleMenu(); // Close menu after click
+  // Handle navigation click with a delay to ensure state sync
+  const handleNavClick = (navId, title) => {
     setShowGradient(false);
     setStartAnimation(false);
     setActive(navId); // Set active link
+    logEvent("Navigation", "Click", title); // Log the navigation click event
+
+    setTimeout(() => {
+      toggleMenu(); // Close the menu with a small delay
+    }, 50);
   };
 
   return (
@@ -41,7 +45,9 @@ const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
         className="text-white text-[26px] lg:text-[36px] font-bold mr-4 z-20"
         onClick={() => {
           setActive("hero");
+          logEvent("Navigation", "Click", "Home");
         }}
+        scroll={(el) => el.scrollIntoView({ behavior: "smooth", block: "start" })}
       >
         MS
       </Link>
@@ -61,7 +67,7 @@ const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
         <div
           className={`fixed top-0 left-0 w-full h-full transition-opacity duration-500 ${
             menuOpen ? "opacity-100" : "opacity-0"
-          } pointer-events-none`} // Ensures no interaction with gradient
+          } pointer-events-none`}
           style={{
             background: "linear-gradient(to bottom, black, transparent)",
             zIndex: 1,
@@ -73,12 +79,12 @@ const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
       {menuOpen && (
         <div
           className="absolute top-full left-0 mt-2 flex flex-col gap-4 z-50"
-          style={{ left: '2.5rem' }} // Adjust if needed for better alignment
+          style={{ left: "2.5rem" }} // Adjust if needed for better alignment
         >
           {navLinks.map((nav, index) => (
             <button
               key={nav.id}
-              onClick={() => handleNavClick(nav.id)}
+              onClick={() => handleNavClick(nav.id, nav.title)}
               className={`py-4 px-6 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-500 ease-in-out ${
                 active === nav.id ? "text-yellow-400" : "text-white"
               }`}
@@ -87,7 +93,13 @@ const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
                 transitionDelay: `${index * 100}ms`,
               }}
             >
-              <Link smooth to={`/#${nav.id}`}>{nav.title}</Link>
+              <Link
+                smooth
+                to={`/#${nav.id}`}
+                scroll={(el) => el.scrollIntoView({ behavior: "smooth", block: "start" })}
+              >
+                {nav.title}
+              </Link>
             </button>
           ))}
         </div>

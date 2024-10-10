@@ -1,6 +1,7 @@
 import React from "react";
 import { FaEgg } from "react-icons/fa";
 import { MdOutlineEgg } from "react-icons/md";
+import { logEvent } from "../analytics"; // Import logEvent for tracking clicks
 
 // Helper function to convert CSS color to RGB
 function getRgbColor(color) {
@@ -14,6 +15,11 @@ function getRgbColor(color) {
 }
 
 const ProgressEgg = ({ color, tooltip, found, startAnimation }) => {
+  // Handle tooltip link click logging
+  const handleTooltipClick = (label) => {
+    logEvent("Egg Hunt", "Click", `Tooltip - ${label}`);
+  };
+
   return (
     <div
       className="egg-container"
@@ -53,6 +59,7 @@ const ProgressEgg = ({ color, tooltip, found, startAnimation }) => {
           style={{
             backgroundColor: `rgba(${getRgbColor(color)}, 0.5)`,
           }}
+          onClick={() => handleTooltipClick(tooltip.label)} // Log tooltip link click
         >
           {tooltip.label}
         </a>
