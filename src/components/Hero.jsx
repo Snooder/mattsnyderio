@@ -28,7 +28,7 @@ const Hero = () => {
       <section className="parallax relative z-0">
         <div className="relative mx-auto w-[100vw] h-full z-20 mt-5">
           {/* First Row - "Hi, my name is" */}
-          <div className="z-20 text-left pt-10 pr-10 pl-6 sm:pl-7 sm:pt-35 sm:pr-4">
+          <div className="z-20 text-left pt-10 pr-10 pl-3 sm:pl-7 sm:pt-35 sm:pr-4">
             <h2 className="font-medium text-white text-[30px] sm:text-[50px] mx-auto">
               Hi, my name is
             </h2>
@@ -55,7 +55,7 @@ const Hero = () => {
             <div className="font-bold text-right text-[24px] sm:text-[34px] md:text-[40px] 2xl:text-[50px] leading-[40px] sm:leading-[50px] streaky-glow text-white whitespace-nowrap">
               I craft
             </div>
-            <div className="sm:ml-5 relative h-[50px] sm:h-[60px] md:h-[70px] 2xl:h-[80px]">
+            <div className="ml-5 relative h-[50px] sm:h-[60px] md:h-[70px] 2xl:h-[80px]">
               <div className="font-bold text-left text-[24px] sm:text-[34px] md:text-[40px] 2xl:text-[50px] sm:leading-[40px] md:leading-[50px] text-white relative">
                 <HeroChangingWords words={words} colors={colors} />
               </div>

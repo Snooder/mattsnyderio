@@ -2,7 +2,7 @@ import {
   arizent,
   bethere,
   paywall,
-  brightspot
+  brightspot, flatiron_logo,arizent_logo,freelance_logo,rutgers_logo,newbrunswick_logo
 } from "../assets";
 
 import {
@@ -33,6 +33,8 @@ const experiences = [
     title: "Software Engineer, ML Platforms",
     company_name: "Flatiron Health",
     date: "2022 - 2023",
+    location: "New York, NY",
+    companyLogo: flatiron_logo,
     details: [
       "Developed machine learning models to enhance real-world oncology evidence, optimizing data processes and pipelines for improved efficiency.",
       "Streamlined data collection and transformation workflows using Python-based solutions, ensuring high-quality patient data.",
@@ -43,7 +45,7 @@ const experiences = [
       {
         name: "FaPython",
         label: "Python",
-        description: "Maintained the Python CLI & API that allowed ML Model Builders to quickly evaluate and test experiments that predict and prevent the onset of life-threatening health conditions."
+        description: "Maintained the Python CLI & API that enabled ML Model Builders to quickly evaluate and test experiments that predict and prevent the onset of life-threatening health conditions."
       },
       {
         name: "FaAws",
@@ -75,6 +77,8 @@ const experiences = [
   {
     title: "Full Stack Software Engineer",
     company_name: "Arizent",
+    location: "New York, NY",
+    companyLogo: arizent_logo,
     date: "2020 - 2022",
     details: [
       "Led the development of new content types using Java, JavaScript, and MySQL, increasing user engagement by 30%.",
@@ -110,8 +114,10 @@ const experiences = [
     ]
   },
   {
-    title: "Shopify Consultant",
+    title: "SaaS Consultant",
     company_name: "Freelance",
+    companyLogo: freelance_logo,
+    location: "Hoboken, NJ",
     date: "2018 - 2020",
     details: [
       "Developed unique store applications by modifying the Shopify backend, providing custom solutions for eCommerce businesses.",
@@ -123,7 +129,7 @@ const experiences = [
       {
         name: "FaShopify",
         label: "Shopify",
-        description: "I built tailored eCommerce solutions on the Shopify platform and automated over a dozen small businesses  to utilize a subscription-based model for their services."
+        description: "Built tailored eCommerce solutions on the Shopify platform and automated over a dozen small businesses  to utilize a subscription-based model for their services."
       },
       {
         name: "FaDatabase",
@@ -145,6 +151,8 @@ const experiences = [
   {
     title: "Junior Application Developer",
     company_name: "Rutgers University",
+    companyLogo: rutgers_logo,
+    location: "New Brunswick, NJ",
     date: "2018",
     details: [
       "Integrated new processes to enhance UX design using open-source software, Drupal, for internal employee modules.",
@@ -182,6 +190,8 @@ const experiences = [
   {
     title: "Bachelors, Computer Science",
     company_name: "Rutgers University",
+    location: "New Brunswick, NJ",
+    companyLogo: newbrunswick_logo,
     date: "2016 - 2020",
     details: [
       "Earned a Bachelor of Science in Computer Science, gaining proficiency in software engineering, machine learning, and data analysis.",
@@ -209,19 +219,13 @@ const experiences = [
 ];
 
 
-const portfolio = [
+const saasProducts = [
   {
     name: "BrightSpot: Social Merchandising Plugin",
     description:
       "A SaaS tool developed to help writers and editors expand their social reach by dynamically promoting the popular content across publication platforms.",
     image: arizent,
     flowchartImage: brightspot,
-  },
-  {
-    name: "BeThere",
-    description:
-      "A platform developed to enhance social experiences that helps users connect with others in their area; building stronger offline communities and expanding personal networks.",
-    image: bethere,
   },
   {
     name: "Shopify Paywall Solution",
@@ -462,5 +466,5 @@ const githubRepos = {
 };
 
 
-export { experiences, portfolio, events, githubRepos };
+export { experiences, saasProducts, events, githubRepos };
 

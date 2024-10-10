@@ -1,45 +1,62 @@
-import React from 'react';
-import { FaEgg } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { FaEgg } from "react-icons/fa";
 
-const EggAnimation = ({ eggVisible, numberOfEggsLeft }) => {
-  if (!eggVisible) return null;
+const EggAnimation = ({ color = "yellow", triggerEgg }) => {
+  const [eggVisible, setEggVisible] = useState(false);
+
+  // Function to trigger the animation
+  const startAnimation = () => {
+    setEggVisible(true);
+    const timer = setTimeout(() => {
+      setEggVisible(false); // Hide the egg after 4 seconds
+    }, 4000);
+
+    return () => clearTimeout(timer); // Clean up timeout on unmount or reset
+  };
+
+  // Destructure visible and color from triggerEgg to avoid object reference issues
+  const { visible, color: eggColor } = triggerEgg;
+
+  // Run animation whenever triggerEgg's `visible` changes to true
+  useEffect(() => {
+    if (visible) {
+      startAnimation(); // Start the animation if `visible` is true
+    }
+  }, [visible]); // Only trigger the effect when `visible` changes
 
   return (
-    <div className="egg-animation-container flex items-center space-x-2">
-      <FaEgg size={30} color="yellow" />
-      <span className="egg-text text-white text-lg font-bold">
-        {numberOfEggsLeft} to go!
-      </span>
+    <>
+      {eggVisible && (
+        <div className="egg-animation">
+          <FaEgg style={{ fontSize: "35px", color: eggColor }} />
+        </div>
+      )}
+
       <style jsx>{`
-        @keyframes fadeIn {
-          0% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-
-        @keyframes fadeOut {
-          0% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0;
-          }
-        }
-
-        .egg-animation-container {
+        .egg-animation {
           opacity: 0;
-          animation: fadeIn 2s ease-in-out forwards, fadeOut 2s ease-in-out 4s; /* Fade in for 2s, then fade out starting at 4s */
-          z-index: 100;
+          transform: scale(0.5);
+          display: block;
+          animation: fade-in-out 4s ease-in-out forwards;
+          z-index: 1000;
         }
 
-        .egg-text {
-          animation: fadeIn 2s ease-in-out forwards, fadeOut 2s ease-in-out 4s; /* Match text animation with egg */
+        @keyframes fade-in-out {
+          0% {
+            transform: scale(0.5);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(0.7);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(0.7);
+            opacity: 0;
+          }
         }
       `}</style>
-    </div>
+    </>
   );
 };
 

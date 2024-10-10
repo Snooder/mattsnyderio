@@ -1,14 +1,26 @@
 import React from 'react';
 import useEggHoverAnimation from './useEggHoverAnimation';
-import EggComponent from './EggComponent';
+import { useEggContext } from '../context/EggContext'; // Import the Egg context
 
 const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)", eggColor = "yellow" }) => {
   const {
     hovering,
     eggVisible,
+    animationComplete,
     handleMouseEnter,
     handleMouseLeave,
+    resetHoverState, // Add function to reset hover state
   } = useEggHoverAnimation();
+
+  const { triggerEggAnimation } = useEggContext(); // Get the trigger function from the Egg context
+
+  // Trigger the egg animation on completion of the spin
+  React.useEffect(() => {
+    if (animationComplete) {
+      triggerEggAnimation({ visible: true, color: eggColor }); // Trigger egg animation
+      resetHoverState(); // Reset after the animation to allow re-triggering
+    }
+  }, [animationComplete, triggerEggAnimation, eggColor, resetHoverState]);
 
   return (
     <div className="relative h-auto flex items-center">
@@ -16,7 +28,10 @@ const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)",
         className={`relative h-auto ${hovering ? "jiggle-animation" : ""}`} // Apply jiggle animation
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        style={{ filter: hovering ? `drop-shadow(0 0 20px ${shadowColor})` : 'none' }} // Dynamic shadow color
+        style={{
+          filter: hovering ? `drop-shadow(0 0 20px ${shadowColor})` : 'none',
+          transition: 'filter 0.3s ease',
+        }}
       >
         {children}
       </div>

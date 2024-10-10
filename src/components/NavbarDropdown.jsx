@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { HashLink as Link } from "react-router-hash-link"; // Import HashLink
 import { logEvent } from "../analytics"; // Import the logEvent function
 import EggAnimation from "./EggAnimation"; // Import the EggAnimation component
@@ -32,9 +32,10 @@ const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
 
   // Toggle the menu open/close state
   const toggleMenu = () => {
+    console.log('Menu clicked!');
     setMenuOpen((prevMenuOpen) => {
       const newMenuState = !prevMenuOpen;
-      setShowGradient(newMenuState); // Show gradient if menu opens
+      setShowGradient(newMenuState); 
       setTimeout(() => setStartAnimation(newMenuState), 100);
 
       if (newMenuState) {
