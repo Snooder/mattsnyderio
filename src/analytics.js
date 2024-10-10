@@ -5,7 +5,7 @@ export const initGA = () => {
   const trackingID = import.meta.env.VITE_GA_TRACKING_ID; // Access Vite environment variable
   if (trackingID) {
     ReactGA.initialize(trackingID);
-    console.log("Google Analytics Initialized with Tracking ID:", trackingID);
+    // console.log("Google Analytics Initialized with Tracking ID:", trackingID);
   } else {
     console.warn("Google Analytics Tracking ID not set. Please define VITE_GA_TRACKING_ID in .env.");
   }
@@ -15,7 +15,7 @@ export const initGA = () => {
 export const logPageView = () => {
   const page = window.location.pathname; // Get current page path
   ReactGA.send({ hitType: "pageview", page: page });
-  console.log(`Page View Logged | Page: ${page}`); // Add console log to indicate the page view
+  // console.log(`Page View Logged | Page: ${page}`); // Add console log to indicate the page view
 };
 
 // Log custom events (such as navigation clicks)
@@ -25,5 +25,5 @@ export const logEvent = (category, action, label) => {
     action: action,
     label: label,
   });
-  console.log(`Event Logged | Category: ${category}, Action: ${action}, Label: ${label}`); // Add console log to indicate event details
+  // console.log(`Event Logged | Category: ${category}, Action: ${action}, Label: ${label}`); // Add console log to indicate event details
 };
