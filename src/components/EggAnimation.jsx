@@ -1,40 +1,42 @@
 import React from 'react';
 import { FaEgg } from 'react-icons/fa';
 
-const EggAnimation = ({ eggVisible }) => {
+const EggAnimation = ({ eggVisible, numberOfEggsLeft }) => {
   if (!eggVisible) return null;
 
   return (
-    <div className="egg-animation">
-      <FaEgg size={50} color="yellow" />
+    <div className="egg-animation-container flex items-center space-x-2">
+      <FaEgg size={30} color="yellow" />
+      <span className="egg-text text-white text-lg font-bold">
+        {numberOfEggsLeft} to go!
+      </span>
       <style jsx>{`
         @keyframes fadeIn {
           0% {
             opacity: 0;
-            transform: translateX(0);
           }
           100% {
             opacity: 1;
-            transform: translateX(0);
           }
         }
 
-        @keyframes slideLeft {
+        @keyframes fadeOut {
           0% {
-            transform: translateX(0);
+            opacity: 1;
           }
           100% {
-            transform: translateX(-500px); /* Adjust the value based on how far left you want the egg to move */
+            opacity: 0;
           }
         }
 
-        .egg-animation {
-          position: absolute;
-          top: 10px; /* Adjust based on where the top of your row is */
-          left: 50%;
-          transform: translateX(-50%);
+        .egg-animation-container {
           opacity: 0;
-          animation: fadeIn 2s ease-in-out forwards, slideLeft 3s ease-in-out 2s; /* Start sliding after 2 seconds of fading in */
+          animation: fadeIn 2s ease-in-out forwards, fadeOut 2s ease-in-out 4s; /* Fade in for 2s, then fade out starting at 4s */
+          z-index: 100;
+        }
+
+        .egg-text {
+          animation: fadeIn 2s ease-in-out forwards, fadeOut 2s ease-in-out 4s; /* Match text animation with egg */
         }
       `}</style>
     </div>

@@ -1,11 +1,19 @@
-import { useRef } from 'react';
+import React, { useRef, useEffect } from 'react'; // Include useEffect from React
 import { BrowserRouter } from "react-router-dom";
 import { Contact, Experience, Hero, Navbar, Portfolio } from "./components";
 import EventGallery from './components/EventGallery';
 import GithubShowcase from './components/GithubShowcase';
+import { initGA, logPageView } from "./analytics";
+import ProgressEggHunt from "./components/ProgressEggHunt";
 
 const App = () => {
   const wrapperRef = useRef(null);
+
+  // useEffect to initialize Google Analytics and log the initial page view
+  useEffect(() => {
+    initGA(); // Initialize Google Analytics
+    logPageView(); // Log the initial page view
+  }, []);
 
   return (
     <BrowserRouter>
@@ -27,10 +35,12 @@ const App = () => {
           <section id="contact" className="relative z-30 bg-primary">
             <Contact />
           </section>
+          <section id="eggHunt" className="relative z-30 bg-primary">
+            <ProgressEggHunt />
+          </section>
         </main>
       </div>
     </BrowserRouter>
-
   );
 };
 

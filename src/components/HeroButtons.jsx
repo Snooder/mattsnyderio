@@ -1,8 +1,16 @@
-import React from 'react';
-import JiggleSpinComponent from './JiggleSpinComponent'; // Ensure you import this correctly
-import { mattsnyderio } from '../assets'; // Make sure the image path is correct
+import React from "react";
+import JiggleSpinComponent from "./JiggleSpinComponent";
+import { mattsnyderio } from "../assets"; // Ensure the path to your image is correct
+import { logEvent } from "../analytics"; // Import logEvent from analytics.js
+import { HashLink as Link } from "react-router-hash-link"; // For smooth scrolling
 
 const HeroButtons = () => {
+  // Handle Button Click Navigation and Analytics
+  const handleButtonClick = (section) => {
+    logEvent("Hero Section", "Click", section); // Log event to analytics
+    document.getElementById(section)?.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to section
+  };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
       {/* Left Column of Buttons */}
@@ -29,8 +37,8 @@ const HeroButtons = () => {
             alt="Center Image"
             className="w-96 h-auto"
             style={{
-              filter: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.8))',
-              transition: 'transform 0.3s ease, filter 0.3s ease',
+              filter: "drop-shadow(0 0 20px rgba(255, 215, 0, 0.8))",
+              transition: "transform 0.3s ease, filter 0.3s ease",
             }}
           />
         </JiggleSpinComponent>

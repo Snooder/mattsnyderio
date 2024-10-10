@@ -4,6 +4,7 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { events } from "../data";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { logEvent } from "../analytics"; // Import logEvent from analytics.js
 
 // Bounce variant for image animation
 const bounceVariant = {
@@ -44,12 +45,20 @@ const EventGallery = () => {
 
   // Handle left arrow click
   const handlePrevClick = () => {
+    logEvent("Event Gallery", "Button Click", "Previous Arrow"); // Log the left arrow click
     setActiveIndex((prevIndex) => (prevIndex === 0 ? events.length - 1 : prevIndex - 1));
   };
 
   // Handle right arrow click
   const handleNextClick = () => {
+    logEvent("Event Gallery", "Button Click", "Next Arrow"); // Log the right arrow click
     setActiveIndex((prevIndex) => (prevIndex === events.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  // Handle thumbnail click
+  const handleThumbnailClick = (index, eventTitle) => {
+    logEvent("Event Gallery", "Thumbnail Click", eventTitle); // Log thumbnail click with event title
+    setActiveIndex(index);
   };
 
   return (
@@ -81,7 +90,7 @@ const EventGallery = () => {
           {events.map((event, index) => (
             <div
               key={index}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => handleThumbnailClick(index, event.title)} // Log thumbnail click
               className={`cursor-pointer w-24 h-24 rounded-lg overflow-hidden border-4 transition-all duration-300 ${
                 activeIndex === index
                   ? "border-yellow-500 shadow-[0_0_15px_rgba(255,215,0,0.8)]"

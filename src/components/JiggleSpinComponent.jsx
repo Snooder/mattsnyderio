@@ -5,7 +5,6 @@ import EggComponent from './EggComponent';
 const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)", eggColor = "yellow" }) => {
   const {
     hovering,
-    animationComplete,
     eggVisible,
     handleMouseEnter,
     handleMouseLeave,
@@ -14,9 +13,7 @@ const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)",
   return (
     <div className="relative h-auto flex items-center">
       <div
-        className={`relative h-auto ${hovering ? "jiggle-animation" : ""} ${
-          animationComplete ? "spin-animation" : ""
-        }`} // Apply jiggle and spin animations
+        className={`relative h-auto ${hovering ? "jiggle-animation" : ""}`} // Apply jiggle animation
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         style={{ filter: hovering ? `drop-shadow(0 0 20px ${shadowColor})` : 'none' }} // Dynamic shadow color
@@ -29,15 +26,11 @@ const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)",
         <EggComponent
           eggVisible={eggVisible}
           eggColor={eggColor}
-          position={{
-            marginLeft: '50%', // Positioning egg above the text
-            marginRight: '50%', // Center horizontally
-          }}
         />
       )}
 
       <style jsx>{`
-        @keyframes jiggle {
+        @keyframes jiggle-egg {
           0% {
             transform: translateX(0);
           }
@@ -45,7 +38,7 @@ const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)",
             transform: translateX(-10px);
           }
           50% {
-            transform: translateX(10px);
+            transform: translateX(0px);
           }
           75% {
             transform: translateX(-10px);
@@ -55,21 +48,8 @@ const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)",
           }
         }
 
-        @keyframes spin {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
         .jiggle-animation {
-          animation: jiggle 0.5s ease infinite;
-        }
-
-        .spin-animation {
-          animation: spin 1s ease-out;
+          animation: jiggle-egg 0.5s ease 2; /* Jiggle for 3 seconds (0.5s x 6) */
         }
       `}</style>
     </div>

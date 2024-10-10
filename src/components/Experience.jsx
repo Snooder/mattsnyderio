@@ -4,7 +4,8 @@ import { experiences } from "../data";
 import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
 import { useInView } from "react-intersection-observer";
-import JiggleSpinComponent from "./JiggleSpinComponent"; // Import the JiggleSpinComponent
+import JiggleSpinComponent from "./JiggleSpinComponent";
+import { logEvent } from "../analytics"; // Import the logEvent function
 
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState(experiences[0]);
@@ -14,6 +15,9 @@ const Experience = () => {
   const handleSelectExperience = (experience) => {
     setSelectedExperience(experience);
     setOpenedExperiences((prev) => new Set(prev).add(experience.title));
+
+    // Log the experience click event
+    logEvent("Experience", "Select", experience.title);
   };
 
   // Hook to handle visibility and animations
@@ -75,14 +79,9 @@ const Experience = () => {
                   {/* Conditionally render JiggleSpinComponent for Shopify */}
                   <div className="flex-shrink-0">
                     {icon.label === "Shopify" ? (
-                      <JiggleSpinComponent
-                        
-                        color="green"
-                        eggColor="green"
-                        animationDuration={4000}
-                      >
+                      <JiggleSpinComponent color="green" eggColor="green" animationDuration={4000}>
                         <ExperienceIcons icons={[icon]} className="icon-border" />
-                        </JiggleSpinComponent>
+                      </JiggleSpinComponent>
                     ) : (
                       <ExperienceIcons icons={[icon]} className="icon-border" />
                     )}
@@ -90,9 +89,7 @@ const Experience = () => {
 
                   {/* Description on the right */}
                   <div className="flex-grow">
-                    <p className="text-sm sm:text-base md:text-lg">
-                      {icon.description}
-                    </p>
+                    <p className="text-sm sm:text-base md:text-lg">{icon.description}</p>
                   </div>
                 </div>
               ))}

@@ -20,7 +20,7 @@ const GithubShowcase = () => {
     }, 300);
   };
 
-  return (
+  return (    
     <div className="container mx-auto px-6 py-4">
       <div className="flex flex-col md:px-20">
         {/* Language List */}
@@ -34,13 +34,7 @@ const GithubShowcase = () => {
                     ? "text-yellow-400 shadow-[0_0_15px_rgba(255,215,0,0.8)]"
                     : "text-white hover:text-yellow-300 shadow-lg"
                 }`}
-                onClick={() => {
-                  setAnimate(true);
-                  setTimeout(() => {
-                    setSelectedLanguageIndex(index);
-                    setAnimate(false);
-                  }, 300);
-                }}
+                onClick={() => handleLanguageClick(index, language)} // Log language click
               >
                 {language}
               </li>
@@ -49,18 +43,18 @@ const GithubShowcase = () => {
 
           {/* GitHub Icon and Username */}
           <div className="absolute bottom-2 right-4 flex p-2 items-center justify-end">
-          
-              <a
-                href="https://github.com/snooder"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="github-flex items-center text-white hover:text-green-300"
-              >
-                <FontAwesomeIcon icon={faGithub} className="text-2xl mr-2" />
-              </a>
-              <JiggleSpinComponent>
-                <span className="font-semibold">snooder</span>
-              </JiggleSpinComponent>
+            <a
+              href="https://github.com/snooder"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="github-flex items-center text-white hover:text-green-300"
+              onClick={() => logEvent("GitHub Showcase", "GitHub Link Click", "snooder")} // Log GitHub link click
+            >
+              <FontAwesomeIcon icon={faGithub} className="text-2xl mr-2" />
+            </a>
+            <JiggleSpinComponent>
+              <span className="font-semibold">snooder</span>
+            </JiggleSpinComponent>
           </div>
         </div>
 
@@ -77,6 +71,7 @@ const GithubShowcase = () => {
                   opacity: animate ? 0 : 1,
                   transition: "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
                 }}
+                onClick={() => handleRepoClick(repo.name)} // Log repository click
               >
                 <div>
                   <h3
@@ -121,28 +116,28 @@ const GithubShowcase = () => {
         </div>
       </div>
 
-      {/* Jiggle and Glow Effect for GitHub Link */}
-      <style jsx>{`
-        @keyframes jiggle {
-          0%, 100% {
-            transform: translateX(0);
-          }
-          25% {
-            transform: translateX(-3px);
-          }
-          50% {
-            transform: translateX(3px);
-          }
-          75% {
-            transform: translateX(-3px);
-          }
+    {/* Jiggle and Glow Effect for GitHub Link */}
+    <style jsx>{`
+      @keyframes jiggle {
+        0%, 100% {
+          transform: translateX(0);
         }
+        25% {
+          transform: translateX(-3px);
+        }
+        50% {
+          transform: translateX(3px);
+        }
+        75% {
+          transform: translateX(-3px);
+        }
+      }
 
-        .github-jiggle-link:hover {
-          animation: jiggle 0.5s ease-in-out infinite;
-          text-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 1);
-        }
-      `}</style>
+      .github-jiggle-link:hover {
+        animation: jiggle 0.5s ease-in-out infinite;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 1);
+      }
+    `}</style>
     </div>
   );
 };
