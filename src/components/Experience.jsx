@@ -6,11 +6,6 @@ import { textVariant } from "../utils/motion";
 import { useInView } from "react-intersection-observer";
 import JiggleSpinComponent from "./JiggleSpinComponent";
 import { logEvent } from "../analytics"; // Import the logEvent function
-import React, { useState } from 'react';
-import { experiences } from '../data';
-import { motion } from 'framer-motion';
-import { textVariant } from '../utils/motion';
-import { useInView } from 'react-intersection-observer';
 import ExperienceDetailPanel from './ExperienceDetailPanel'; // Import the new component
 
 const Experience = () => {

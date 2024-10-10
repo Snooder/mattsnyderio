@@ -102,7 +102,7 @@ const ProjectCard = ({
   );
 };
 
-const Portfolio = () => {
+const saasProducts = () => {
   // Hook for GitHub section inView animation
   const [githubRef, githubInView] = useInView({
     threshold: 0.1, // Trigger when 10% of the section is visible
@@ -138,4 +138,4 @@ const Portfolio = () => {
   );
 };
 
-export default SectionWrapper(Portfolio, "Projects");
+export default SectionWrapper(saasProducts, "saasProducts");

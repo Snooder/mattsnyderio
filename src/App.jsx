@@ -1,11 +1,12 @@
-<<<<<<< HEAD
-import React, { useRef, useEffect } from 'react'; // Include useEffect from React
+import React, { useRef, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Contact, Experience, Hero, Navbar, Portfolio } from "./components";
-import EventGallery from './components/EventGallery';
-import GithubShowcase from './components/GithubShowcase';
-import { initGA, logPageView } from "./analytics";
+import { Contact, Experience, Hero, Navbar, Portfolio} from "./components";
+import EventGallery from "./components/EventGallery";
+import GithubShowcase from "./components/GithubShowcase";
 import ProgressEggHunt from "./components/ProgressEggHunt";
+import { initGA, logPageView } from "./analytics";
+import { EggProvider } from "./context/EggContext"; // Import EggProvider
+import SaaSProducts from "./components/SaaSProducts";
 
 const App = () => {
   const wrapperRef = useRef(null);
@@ -17,51 +18,16 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter>
-      <div className="relative z-0 bg-primary">
-        <Navbar />
-        <main className="wrapper" ref={wrapperRef}>
-          <section id="hero" className="z-40">
-            <Hero scrollContainer={wrapperRef} />
-          </section>
-          <section id="experience" className="relative z-30 mb-8 bg-primary">
-            <Experience />
-          </section>
-          <section id="github" className="relative z-30 mb-8 bg-primary">
-            <Portfolio />
-          </section>
-          <section id="events" className="relative z-30 mb-8 bg-primary">
-            <EventGallery />
-          </section>
-          <section id="contact" className="relative z-30 bg-primary">
-            <Contact />
-          </section>
-          <section id="eggHunt" className="relative z-30 bg-primary">
-            <ProgressEggHunt />
-          </section>
-        </main>
-      </div>
-    </BrowserRouter>
-=======
-import { BrowserRouter } from "react-router-dom";
-import { Contact, Experience, Hero, Navbar, Portfolio } from "./components";
-import EventGallery from './components/EventGallery';
-import { EggProvider } from "./context/EggContext";
-import SaaSProducts from "./components/SaaSProducts";
-import GithubShowcase from "./components/GithubShowcase";
-import ProgressEggHunt from "./components/ProgressEggHunt";
-
-const App = () => {
-  return (
-    <EggProvider> {/* Wrap the entire app inside EggProvider */}
+    <EggProvider>
+      {/* Wrap the whole app in EggProvider to provide context to child components */}
       <BrowserRouter>
         <div className="relative z-0 bg-primary">
           <Navbar />
-          <main className="wrapper">
+          <main className="wrapper" ref={wrapperRef}>
             <section id="hero" className="z-40">
-              <Hero />
+              <Hero scrollContainer={wrapperRef} />
             </section>
-            <section id="experience" className="relative z-30 h-auto mb-8 bg-primary">
+            <section id="experience" className="relative z-30 mb-8 bg-primary">
               <Experience />
             </section>
             <section id="saas" className="relative z-30 mb-8 bg-primary">
@@ -83,7 +49,6 @@ const App = () => {
         </div>
       </BrowserRouter>
     </EggProvider>
->>>>>>> bb6a0dd74c11c106e698c01b4e8d425e1c99472d
   );
 };
 

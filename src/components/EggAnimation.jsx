@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaEgg } from "react-icons/fa";
 
+
 const EggAnimation = ({ color = "yellow", triggerEgg }) => {
   const [eggVisible, setEggVisible] = useState(false);
 

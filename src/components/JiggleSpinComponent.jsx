@@ -64,7 +64,7 @@ const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)",
         }
 
         .jiggle-animation {
-          animation: jiggle-egg 0.5s ease 2; /* Jiggle for 3 seconds (0.5s x 6) */
+          animation: jiggle-egg 0.5s ease 4; /* Jiggle for 3 seconds (0.5s x 6) */
         }
       `}</style>
     </div>

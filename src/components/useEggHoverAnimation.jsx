@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { logEvent } from "../analytics"; // Import the logEvent function
 
-<<<<<<< HEAD
-const useEggHoverAnimation = (animationDuration = 4000) => {
-=======
 const useEggHoverAnimation = (animationDuration = 2000) => {
->>>>>>> bb6a0dd74c11c106e698c01b4e8d425e1c99472d
   const [hovering, setHovering] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
 
