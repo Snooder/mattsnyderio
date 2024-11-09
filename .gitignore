@@ -60,3 +60,4 @@ temp/
 # Miscellaneous
 *.log
 !.npmignore
+package-lock.json

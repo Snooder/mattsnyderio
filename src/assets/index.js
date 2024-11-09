@@ -21,6 +21,6 @@ import arizent_logo from "./arizent_logo.png"
 import freelance_logo from "./freelance_logo.png"
 import rutgers_logo from "./rutgers_logo.png"
 import newbrunswick_logo from "./newbrunswick_logo.png"
-
-export { mattsnyderio, mattsnyderio_profile, logo, menu, close, arizent, bethere, paywall, fun1, fun2, fun3, fun4, flatiron1, flatiron2, flatiron3, brightspot, flatiron_logo,arizent_logo,freelance_logo,rutgers_logo,newbrunswick_logo};
+import starfetcher_dashboard from "./starfetcher_dashboard.png"
+export { starfetcher_dashboard, mattsnyderio, mattsnyderio_profile, logo, menu, close, arizent, bethere, paywall, fun1, fun2, fun3, fun4, flatiron1, flatiron2, flatiron3, brightspot, flatiron_logo,arizent_logo,freelance_logo,rutgers_logo,newbrunswick_logo};
 

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useEggContext } from "../context/EggContext"; // Use the egg context
+import { useEggContext } from "../context/EggContext";
 import ProgressEgg from "./progressEgg";
 import ProgressButton from "./progressButton";
-import ProgressVideo from "./progressVideo";
+import ProgressVideo from "./ProgressVideo";
 
 const ProgressEggHunt = () => {
-  const { eggsFound } = useEggContext(); // Get eggs found from context
+  const { eggsFound } = useEggContext();
   const eggColors = ["white", "yellow", "green", "red", "blue", "purple"];
   const tooltips = [
     { label: "Mystery", url: "" },
-    { label: "Hero", url: "#hero" }, 
-    { label: "Experience", url: "#experience" }, 
-    { label: "SaaS", url: "#saas" }, 
-    { label: "Github", url: "#github" }, 
+    { label: "Hero", url: "#hero" },
+    { label: "Experience", url: "#experience" },
+    { label: "SaaS", url: "#saas" },
+    { label: "Github", url: "#github" },
     { label: "Events", url: "#events" },
   ];
 
@@ -29,7 +29,6 @@ const ProgressEggHunt = () => {
     setIsVideoPlaying(false);
   };
 
-  // Check if all eggs are found
   const allEggsFound = eggsFound.length === eggColors.length;
 
   useEffect(() => {
@@ -38,17 +37,20 @@ const ProgressEggHunt = () => {
     }
   }, [allEggsFound]);
 
-  // Start the animation with a delay
   useEffect(() => {
     setTimeout(() => {
       setStartAnimation(true);
     }, 100);
   }, []);
 
-  // Handle closing the video after it fades out
+  const handlePrizeButtonClick = () => {
+    setShowVideo(true);
+    handleVideoStart(); // Start the video when the prize button is clicked
+  };
+
   const handleCloseVideo = () => {
     setShowVideo(false);
-    handleVideoEnd(); // Ensure the video end state is triggered when the video closes
+    handleVideoEnd();
   };
 
   return (
@@ -60,13 +62,7 @@ const ProgressEggHunt = () => {
 
         {/* Prize Button */}
         {showPrizeButton && (
-          <ProgressButton
-            onClick={() => {
-              setShowVideo(true);
-              handleVideoStart(); // Trigger video start when button is clicked
-            }}
-            isVideoPlaying={isVideoPlaying}
-          />
+          <ProgressButton onClick={handlePrizeButtonClick} />
         )}
 
         {/* Render all eggs */}
@@ -83,7 +79,7 @@ const ProgressEggHunt = () => {
         </div>
       </div>
 
-      {/* Video Overlay (Moved outside the main container) */}
+      {/* Video Overlay */}
       {showVideo && (
         <ProgressVideo
           onClose={handleCloseVideo}

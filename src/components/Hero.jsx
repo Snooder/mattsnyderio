@@ -4,6 +4,7 @@ import HeroChangingWords from "./HeroChangingWords";
 import HeroButtons from "./HeroButtons";
 import ParallaxImages from "./ParallaxImages";
 import JiggleSpinComponent from './JiggleSpinComponent'; // Import the JiggleSpinComponent
+import Lootbox from './Lootbox';
 
 const Hero = ({active, setActive}) => {
   const colors = ["#FF5733", "#33FF57", "#3357FF", "#F0E68C", "#8A2BE2", "#FF69B4"];

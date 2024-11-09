@@ -55,7 +55,7 @@ const ProjectCard = ({
         >
           {/* Front side (project image) */}
           <div
-            className="w-full h-full bg-white backface-hidden rounded-lg shadow-md"
+            className="w-full h-full bg-white backface-hidden rounded-2xl shadow-md"
             style={{
               backfaceVisibility: "hidden",
               position: "absolute", // Ensure both sides stack in the same position
@@ -65,14 +65,14 @@ const ProjectCard = ({
             <img
               src={image}
               alt={`${name} project image`}
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-contain rounded-2xl"
             />
           </div>
 
           {/* Back side (flowchart image), only visible if flowchartImage exists */}
           {flowchartImage && (
             <div
-              className="w-full h-full bg-gray-200 absolute top-0 left-0 rounded-lg shadow-md"
+              className="w-full h-full bg-gray-200 absolute top-0 left-0 rounded-2xl shadow-md"
               style={{
                 backfaceVisibility: "hidden",
                 zIndex: isFlipped ? 1 : 0, // Back should be visible when flipped
@@ -82,7 +82,7 @@ const ProjectCard = ({
               <img
                 src={flowchartImage}
                 alt={`${name} flowchart`}
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-full object-contain rounded-2xl"
               />
             </div>
           )}

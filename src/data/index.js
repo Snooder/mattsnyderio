@@ -2,7 +2,7 @@ import {
   arizent,
   bethere,
   paywall,
-  brightspot, flatiron_logo,arizent_logo,freelance_logo,rutgers_logo,newbrunswick_logo
+  starfetcher_dashboard, brightspot, flatiron_logo,arizent_logo,freelance_logo,rutgers_logo,newbrunswick_logo
 } from "../assets";
 
 import {
@@ -220,6 +220,12 @@ const experiences = [
 
 
 const saasProducts = [
+  {
+    name: "StarFetcher: OSRS Shooting Star Tracker",
+    description:
+      "Starfetcher is a best-in-class, fully personalized platform designed to help Old School RuneScape (OSRS) players efficiently track and scout the highest-priority shooting stars.",
+    image: starfetcher_dashboard,
+  },
   {
     name: "BrightSpot: Social Merchandising Plugin",
     description:
@@ -465,6 +471,62 @@ const githubRepos = {
   ],
 };
 
+const technologySentences = {
+  Python: [
+      "Matt began his journey with Python for data analysis in 2022.",
+      "Matt leveraged Python for machine learning in 2022.",
+      "Matt harnessed Python at Flatiron Health and Rutgers."
+  ],
+  AWS: [
+      "Matt embraced AWS for cloud hosting in 2022.",
+      "Matt leveraged AWS for server management in 2022.",
+      "Matt deployed AWS solutions at Flatiron Health."
+  ],
+  Docker: [
+      "Matt adopted Docker for containerization in 2022.",
+      "Matt leveraged Docker for application deployment in 2022.",
+      "Matt orchestrated Docker environments at Arizent and Flatiron Health."
+  ],
+  Jenkins: [
+      "Matt integrated Jenkins for CI/CD in 2022.",
+      "Matt leveraged Jenkins for automated testing in 2022.",
+      "Matt optimized workflows with Jenkins at Arizent."
+  ],
+  Terraform: [
+      "Matt utilized Terraform for infrastructure management in 2022.",
+      "Matt leveraged Terraform for automating deployments in 2022.",
+      "Matt championed Terraform practices at Flatiron Health."
+  ],
+  MySQL: [
+      "Matt engaged with MySQL for database management in 2020.",
+      "Matt leveraged MySQL for data retrieval in 2020.",
+      "Matt designed MySQL architectures at Arizent."
+  ],
+  Shopify: [
+      "Matt started working with Shopify for eCommerce solutions in 2019.",
+      "Matt leveraged Shopify for online store management in 2019."
+  ],
+  MySQL: [
+      "Matt began working with SQL for data manipulation in 2019.",
+      "Matt leveraged SQL for query optimization in 2019."
+  ],
+  Unity: [
+    "Matt has developed engaging mobile games using Unity across iOS and Playstore.",
+    "Matt crafted a fully immersive AR/VR space exploration game with Unity.",
+    "Matt designed an action-packed game marine biology game in Unity."
+  ],
+  Slack: [
+    "Matt developed Slack apps tailored for data scientists in 2022.",
+    "Matt created created 100 custom emojis for past teams.",
+    "Matt loves using Slack huddles for quick team discussions."
+  ],
+  React: [
+    "Matt built this site using React, showcasing its capabilities.",
+    "Matt has developed several high-traffic platforms with React's efficient architecture.",
+    "Matt utilizes React to create robust SaaS products that cater to the user experience."
+  ]
+};
 
-export { experiences, saasProducts, events, githubRepos };
+
+export { technologySentences, experiences, saasProducts, events, githubRepos };
 

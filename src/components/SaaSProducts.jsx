@@ -48,7 +48,7 @@ const ProjectCard = ({
         >
           {/* Front side (project image) */}
           <div
-            className="w-full h-full bg-white backface-hidden rounded-lg shadow-md"
+            className="w-full h-full bg-white backface-hidden rounded-md border border-white border-opacity-10 border-2 shadow-md"
             style={{
               backfaceVisibility: "hidden",
               position: "absolute",
@@ -58,14 +58,14 @@ const ProjectCard = ({
             <img
               src={image}
               alt={`${name} project image`}
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-fill rounded-md"
             ></img>
           </div>
 
           {/* Back side (flowchart image) */}
           {flowchartImage && (
             <div
-              className="w-full h-full bg-gray-200 absolute top-0 left-0 rounded-lg shadow-md"
+              className="w-full h-full bg-gray-200 absolute top-0 left-0 rounded-md shadow-md"
               style={{
                 backfaceVisibility: "hidden",
                 zIndex: isFlipped ? 1 : 0,
@@ -75,7 +75,7 @@ const ProjectCard = ({
               <img
                 src={flowchartImage}
                 alt={`${name} flowchart`}
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-full object-fill rounded-md"
               />
             </div>
           )}
@@ -86,16 +86,16 @@ const ProjectCard = ({
       <div className="w-full md:w-1/3 flex flex-col justify-center items-center">
         {name === "Shopify Paywall Solution" ? (
           <JiggleSpinComponent shadowColor="rgba(255, 0, 0, 1)" eggColor="red">
-            <h3 className="text-white font-medium text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-tight text-center">
+            <h3 className="text-white font-medium text-md sm:text-lg md:text-xl lg:text-md xl:text-md md:text-4xl leading-tight text-center">
               {name}
             </h3>
           </JiggleSpinComponent>
         ) : (
-          <h3 className="text-white font-medium text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-tight text-center">
+          <h3 className="text-white font-medium text-md sm:text-lg md:text-xl lg:text-md xl:text-md md:text-4xl leading-tight text-center">
             {name}
           </h3>
         )}
-        <p className="mt-4 text-secondary text-sm sm:text-xs md:text-sm lg:text-md xl:text-lg 2xl:text-xl text-center">
+        <p className="mt-4 text-secondary text-sm sm:text-xs md:text-sm lg:text-md xl:text-lg md:text-xl text-center">
           {description}
         </p>
       </div>
@@ -119,7 +119,7 @@ const SaaSProducts = () => {
         animate={saasInView ? "show" : "hidden"}
         className="xs:text-left xs:px-20 sm:px-20 mb-8"
       >
-        <h2 className="text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold filter drop-shadow-[0_0_30px_rgba(255,0,0,1)]">
+        <h2 className="text-md text-center xs:text-md sm:text-4xl md:text-5xl font-bold filter drop-shadow-[0_0_30px_rgba(255,0,0,1)]">
           SaaS Products
         </h2>
       </motion.div>
