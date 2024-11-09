@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TbExposurePlus1 } from "react-icons/tb";
 import Lootbox from './Lootbox';
-import LootboxProgressBar from './lootboxProgressBar';
+import LootboxProgressBar from './LootboxProgressBar';
 import ProgressButton from './progressButton';
 import ProgressVideo from './ProgressVideo';
 import { technologySentences } from '../data';
