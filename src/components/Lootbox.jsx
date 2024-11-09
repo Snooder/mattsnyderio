@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaGift } from 'react-icons/fa';
 import { technologies, getRandomColor, calculateRemainingTime } from './lootboxUtils'; // Import utilities
-import IconDisplay from './iconDisplay';
+import IconDisplay from './IconDisplay';
 
 const Lootbox = ({ onWin }) => {
     const [currentIcon, setCurrentIcon] = useState(null);
