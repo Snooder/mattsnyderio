@@ -3,7 +3,7 @@ import { FaGift } from "react-icons/fa"; // Import FaGift for the surprise box i
 import EggProgress from "./EggProgress";
 import NavbarDropdown from "./NavbarDropdown";
 import EggAnimation from "./EggAnimation";
-import LootboxContainer from "./LootboxContainer";
+import LootboxContainer from "./lootboxContainer";
 import { useEggContext } from "../context/EggContext";
 
 const Navbar = ({ active, setActive }) => {
