@@ -473,7 +473,7 @@ const githubRepos = {
 
 const technologySentences = {
   Python: [
-      "Matt made an NFL Prediction System using Python's data analysis tools in 2022.",
+      "Matt made an NFL Prediction app using Python's data analysis tools in 2022.",
       "Using Python, Matt made a competitive Trivia chat-intragtion for Twitch streamers.",
       "Matt used Python to maintain hundreds of cancer research models at Flatiron Health."
   ],

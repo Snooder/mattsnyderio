@@ -1,29 +1,36 @@
-import ReactGA from "react-ga4";
-
-// Initialize Google Analytics using Vite environment variable
+// Initialize Google Analytics using Vite environment variable with gtag.js
 export const initGA = () => {
-  const trackingID = import.meta.env.VITE_GA_TRACKING_ID; // Access Vite environment variable
+  const trackingID = import.meta.env.VITE_GA_TRACKING_ID;
   if (trackingID) {
-    ReactGA.initialize(trackingID);
-    // console.log("Google Analytics Initialized with Tracking ID:", trackingID);
+    // Load gtag.js
+    const script1 = document.createElement("script");
+    script1.async = true;
+    script1.src = `https://www.googletagmanager.com/gtag/js?id=${trackingID}`;
+    document.head.appendChild(script1);
+
+    // Initialize gtag
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag("js", new Date());
+    gtag("config", trackingID);
   } else {
-    console.warn("Google Analytics Tracking ID not set. Please define VITE_GA_TRACKING_ID in .env.");
+    console.warn("Google Analytics Tracking ID not set.");
   }
 };
 
 // Log page views (when navigating between pages)
 export const logPageView = () => {
-  const page = window.location.pathname; // Get current page path
-  ReactGA.send({ hitType: "pageview", page: page });
-  // console.log(`Page View Logged | Page: ${page}`); // Add console log to indicate the page view
+  const page_path = window.location.pathname; // Get current page path
+  window.gtag("event", "page_view", { page_path });
+  console.log(`Page View Logged | Page Path: ${page_path}`);
 };
 
-// Log custom events (such as navigation clicks)
+// Log custom events (maintaining same function signature)
 export const logEvent = (category, action, label) => {
-  ReactGA.event({
-    category: category,
-    action: action,
-    label: label,
+  window.gtag("event", action, {
+    event_category: category,
+    event_label: label,
   });
-  // console.log(`Event Logged | Category: ${category}, Action: ${action}, Label: ${label}`); // Add console log to indicate event details
+  console.log(`Event Logged | Category: ${category}, Action: ${action}, Label: ${label}`);
 };

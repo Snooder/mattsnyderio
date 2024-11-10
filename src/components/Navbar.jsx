@@ -12,6 +12,7 @@ const Navbar = ({ active, setActive }) => {
   const { eggAnimation, triggerEggAnimation } = useEggContext();
   const [isTooltipVisible, setIsTooltipVisible] = useState(false)
   const toggleLootboxVisibility = () => {
+    logEvent("Lootbox", "click", "Lootbox toggled");
     setLootboxVisible(!lootboxVisible);
   };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaGift } from 'react-icons/fa';
-import { technologies, getRandomColor, calculateRemainingTime } from './lootboxUtils'; // Import utilities
+import { technologies, getRandomColor, calculateRemainingTime } from './lootboxUtils';
 import IconDisplay from './IconDisplay';
 
 const Lootbox = ({ onWin }) => {
@@ -12,69 +12,64 @@ const Lootbox = ({ onWin }) => {
     const handleFlash = () => {
         if (!flashing) {
             setFlashing(true);
-            setAnimationClass(''); // Reset any animation class
-            const flashDuration = 8000; // Total duration for the flashing effect
+            setAnimationClass('');
+            const flashDuration = 8000;
             const startTime = Date.now();
-            const initialFlashInterval = 800; // Starting speed in milliseconds
-            let jiggleStarted = false; // Track if jiggle has started
+            const initialFlashInterval = 800;
+            let jiggleStarted = false;
 
             const flashInterval = setInterval(() => {
                 const elapsed = Date.now() - startTime;
 
-                // Check if the total duration has elapsed
                 if (elapsed >= flashDuration) {
                     clearInterval(flashInterval);
                     setFlashing(false);
-                    setCurrentIcon(null); // Reset icon visibility
+                    setCurrentIcon(null);
                     return;
                 }
 
-                // Change icon
                 const randomTech = technologies[Math.floor(Math.random() * technologies.length)];
-                setCurrentIcon(randomTech.icon); // Randomly select a technology icon
-                setIconBackgroundColor(getRandomColor()); // Change the background color
+                setCurrentIcon(randomTech.icon);
+                setIconBackgroundColor(getRandomColor());
 
-                // Gradually slow down after 2 seconds
                 if (elapsed > 2000) {
-                    const remainingTime = calculateRemainingTime(startTime, flashDuration); // Calculate remaining time
-                    const newSpeed = Math.max(remainingTime / 20, 600); // Keep a minimum speed of 600ms
+                    const remainingTime = calculateRemainingTime(startTime, flashDuration);
+                    const newSpeed = Math.max(remainingTime / 20, 600);
 
                     clearInterval(flashInterval);
                     setTimeout(() => {
-                        let winningIcon = randomTech; // Store the winning icon
+                        let winningIcon = randomTech;
                         const newIntervalId = setInterval(() => {
                             const newRandomTech = technologies[Math.floor(Math.random() * technologies.length)];
                             setCurrentIcon(newRandomTech.icon);
                             setIconBackgroundColor(getRandomColor());
-                            winningIcon = newRandomTech
-                            
+                            winningIcon = newRandomTech;
+
                             if (!jiggleStarted) {
-                                setAnimationClass('jiggle'); // Start jiggle animation
-                                jiggleStarted = true; // Set jiggleStarted to true
+                                setAnimationClass('jiggle');
+                                jiggleStarted = true;
                             }
 
                         }, newSpeed);
 
-                        // Ensure the new interval clears after the total duration plus an extra 4 seconds
                         setTimeout(() => {
                             clearInterval(newIntervalId);
-                            setAnimationClass(''); // Stop jiggle animation
-                            onWin(winningIcon.name); // Pass the winning icon's name to onWin
+                            setAnimationClass('');
+                            onWin(winningIcon.name);
 
-                            // Keep the last icon displayed for an extra 4 seconds
                             setTimeout(() => {
                                 setFlashing(false);
-                                setCurrentIcon(null); // Reset icon visibility
-                            }, 4000); // Extra 4 seconds
+                                setCurrentIcon(null);
+                            }, 4000);
                         }, remainingTime);
                     }, newSpeed);
                 }
-            }, initialFlashInterval); // Flash every 800ms initially
+            }, initialFlashInterval);
         }
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', margin: '5px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '5px', position: 'relative' }}>
             <div
                 className={`lootbox ${animationClass}`}
                 onClick={handleFlash}
@@ -87,15 +82,15 @@ const Lootbox = ({ onWin }) => {
                     position: 'relative',
                     overflow: 'hidden',
                     margin: '0 auto',
-                    backgroundColor: 'transparent', // Set to transparent
+                    backgroundColor: 'transparent',
                     cursor: 'pointer',
-                    transition: 'transform 0.5s', // Smooth transition for the jiggle
+                    transition: 'transform 0.5s',
                 }}
             >
                 {flashing ? (
                     <IconDisplay icon={currentIcon} backgroundColor={iconBackgroundColor} />
                 ) : (
-                    <FaGift size={80} color="#FFD700" /> // Display surprise box icon when inactive
+                    <FaGift size={80} color="#FFD700" />
                 )}
             </div>
 
@@ -109,7 +104,7 @@ const Lootbox = ({ onWin }) => {
                         100% { transform: rotate(0deg); }
                     }
                     .jiggle {
-                        animation: jiggle 0.4s ease-in-out infinite; /* Continuous jiggle */
+                        animation: jiggle 0.4s ease-in-out infinite;
                     }
                 `}
             </style>

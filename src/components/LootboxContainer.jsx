@@ -4,6 +4,7 @@ import Lootbox from './Lootbox';
 import LootboxProgressBar from './LootboxProgressBar';
 import ProgressButton from './progressButton';
 import ProgressVideo from './ProgressVideo';
+import Confetti from 'react-confetti';
 import { technologySentences } from '../data';
 
 const LootboxContainer = ({ experiences }) => {
@@ -22,11 +23,11 @@ const LootboxContainer = ({ experiences }) => {
     const handleMouseEnter = () => setIsScaled(true);
 
     const handleMouseLeave = () => {
-        setTimeout(() => setIsScaled(false), 200); // 1-second delay before resetting
+        setTimeout(() => setIsScaled(false), 200);
     };
 
     const handleClick = () => {
-        setTimeout(() => setIsScaled(false), 200); // 1-second delay before resetting
+        setTimeout(() => setIsScaled(false), 200);
     };
 
     const handleWin = (iconName) => {
@@ -94,6 +95,17 @@ const LootboxContainer = ({ experiences }) => {
 
     return (
         <>
+            {/* Confetti Effect */}
+            {setNewIcon && (
+                <Confetti
+                    width={window.innerWidth}
+                    height={window.innerHeight}
+                    recycle={false}
+                    numberOfPieces={200}
+                    colors={['#FFD700', '#FFD700', '#FFF8DC']}
+                />
+            )}
+
             {isContainerOpen && (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
                     <div
@@ -114,7 +126,7 @@ const LootboxContainer = ({ experiences }) => {
                     {/* Christmas Box with hover scaling effect */}
                     <div
                         style={{
-                            transform: isScaled ? 'scale(1.5)' : 'scale(1)', // Conditional scaling
+                            transform: isScaled ? 'scale(1.5)' : 'scale(1)',
                             transition: 'transform 0.3s ease',
                             cursor: 'pointer',
                         }}
@@ -151,7 +163,7 @@ const LootboxContainer = ({ experiences }) => {
                     {/* Bottom text displaying random sentence */}
                     <div
                         style={{
-                            height: showText ? '100px' : '0px',
+                            height: showText ? 'auto' : '0px',
                             overflow: 'hidden',
                             transition: 'height 0.5s ease',
                             marginTop: '20px',
@@ -166,7 +178,7 @@ const LootboxContainer = ({ experiences }) => {
                         style={{
                             opacity: showText ? 1 : 0,
                             transition: 'opacity 0.5s ease',
-                            transitionDelay: showText ? '1s' : '0s', // 500ms delay when showing, no delay when hiding
+                            transitionDelay: showText ? '1s' : '0s',
                         }}
                     >
                         {randomSentence}
