@@ -473,42 +473,34 @@ const githubRepos = {
 
 const technologySentences = {
   Python: [
-      "Matt began his journey with Python for data analysis in 2022.",
-      "Matt leveraged Python for machine learning in 2022.",
-      "Matt harnessed Python at Flatiron Health and Rutgers."
+      "Matt made an NFL Prediction System using Python's data analysis tools in 2022.",
+      "Matt made a Competitive Trivia application for Twitch streamers, to create an altnerate experience for their viewers.",
+      "Matt enabled hundreds of Python models to run at Flatiron Health."
   ],
   AWS: [
-      "Matt embraced AWS for cloud hosting in 2022.",
-      "Matt leveraged AWS for server management in 2022.",
-      "Matt deployed AWS solutions at Flatiron Health."
+      "Matt created his first EC2 instance in 2022, and recieved his first expensive AWS bill the month after.",
+      "Matt learned the heavy role of IAM policies in 2022.",
+      "Matt scaled infrastructure up, down, and all around at Flatiron Health."
   ],
   Docker: [
-      "Matt adopted Docker for containerization in 2022.",
-      "Matt leveraged Docker for application deployment in 2022.",
+      "Matt started using Docker to create projects in 2022.",
       "Matt orchestrated Docker environments at Arizent and Flatiron Health."
   ],
   Jenkins: [
-      "Matt integrated Jenkins for CI/CD in 2022.",
-      "Matt leveraged Jenkins for automated testing in 2022.",
-      "Matt optimized workflows with Jenkins at Arizent."
+      "Matt used Jenkins CI/CD to check for code quality at Flatiron Health.",
+      "Matt wired Git commits to Jenkins to allow fast and continuous value.",
   ],
   Terraform: [
-      "Matt utilized Terraform for infrastructure management in 2022.",
-      "Matt leveraged Terraform for automating deployments in 2022.",
-      "Matt championed Terraform practices at Flatiron Health."
+      "Matt managed Blue/Green deployments using Terraform at Flatiron Health.",
+      "Matt's wife Brenna is way better at Cloud Engineering than he is."
   ],
   MySQL: [
-      "Matt engaged with MySQL for database management in 2020.",
-      "Matt leveraged MySQL for data retrieval in 2020.",
-      "Matt designed MySQL architectures at Arizent."
+      "Matt made his first MySQL database when he was 13 years old, it still lives to this day.",
+      "Matt gave a short lecture in high school to his classmates on the costly effects of un-optimizationed queries",
   ],
   Shopify: [
-      "Matt started working with Shopify for eCommerce solutions in 2019.",
-      "Matt leveraged Shopify for online store management in 2019."
-  ],
-  MySQL: [
-      "Matt began working with SQL for data manipulation in 2019.",
-      "Matt leveraged SQL for query optimization in 2019."
+      "Matt assisted over 30 businesses get started working with Shopify for eCommerce solutions.",
+      "Matt automated a Shopify business to over $12k/month and increased returning subscriptions by 300%."
   ],
   Unity: [
     "Matt has developed engaging mobile games using Unity across iOS and Playstore.",
@@ -516,14 +508,14 @@ const technologySentences = {
     "Matt designed an action-packed game marine biology game in Unity."
   ],
   Slack: [
-    "Matt developed Slack apps tailored for data scientists in 2022.",
-    "Matt created created 100 custom emojis for past teams.",
+    "Matt's made dozens of Slack app integrations, his favorite's were tailored for data scientists.",
+    "Matt made over 100 custom emojis to improve team morale and keep spirits high.",
     "Matt loves using Slack huddles for quick team discussions."
   ],
   React: [
-    "Matt built this site using React, showcasing its capabilities.",
-    "Matt has developed several high-traffic platforms with React's efficient architecture.",
-    "Matt utilizes React to create robust SaaS products that cater to the user experience."
+    "Matt built this site using React, thank you for stopping by!",
+    "Matt has developed several high functioning platforms with React's efficient architecture.",
+    "Matt utilizes React to create SaaS products that cater to the best possibilities in user experience."
   ]
 };
 
