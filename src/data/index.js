@@ -474,12 +474,12 @@ const githubRepos = {
 const technologySentences = {
   Python: [
       "Matt made an NFL Prediction System using Python's data analysis tools in 2022.",
-      "Matt made a Competitive Trivia application for Twitch streamers, to create an alternate experience for their viewers.",
-      "Matt enabled hundreds of Python models to run at Flatiron Health."
+      "Using Python, Matt made a competitive Trivia chat-intragtion for Twitch streamers.",
+      "Matt used Python to maintain hundreds of cancer research models at Flatiron Health."
   ],
   AWS: [
       "Matt created his first EC2 instance in 2022, and recieved his first expensive AWS bill the month after.",
-      "Matt learned the heavy role of IAM policies in 2022.",
+      "Matt learned the heavy role of managing IAM policies in 2022.",
       "Matt scaled infrastructure up, down, and all around at Flatiron Health."
   ],
   Docker: [
