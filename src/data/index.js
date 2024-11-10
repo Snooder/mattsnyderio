@@ -474,7 +474,7 @@ const githubRepos = {
 const technologySentences = {
   Python: [
       "Matt made an NFL Prediction System using Python's data analysis tools in 2022.",
-      "Matt made a Competitive Trivia application for Twitch streamers, to create an altnerate experience for their viewers.",
+      "Matt made a Competitive Trivia application for Twitch streamers, to create an alternate experience for their viewers.",
       "Matt enabled hundreds of Python models to run at Flatiron Health."
   ],
   AWS: [
@@ -496,16 +496,16 @@ const technologySentences = {
   ],
   MySQL: [
       "Matt made his first MySQL database when he was 13 years old, it still lives to this day.",
-      "Matt gave a short lecture in high school to his classmates on the costly effects of un-optimizationed queries",
+      "Matt gave a short lecture in high school to his classmates on the costly effects of unoptimizationed queries",
   ],
   Shopify: [
       "Matt assisted over 30 businesses get started working with Shopify for eCommerce solutions.",
       "Matt automated a Shopify business to over $12k/month and increased returning subscriptions by 300%."
   ],
   Unity: [
-    "Matt has developed engaging mobile games using Unity across iOS and Playstore.",
+    "Matt has developed a handful of mobile games using Unity across iOS and Playstore.",
     "Matt crafted a fully immersive AR/VR space exploration game with Unity.",
-    "Matt designed an action-packed game marine biology game in Unity."
+    "Matt designed an action-packed marine biology game using Unity."
   ],
   Slack: [
     "Matt's made dozens of Slack app integrations, his favorite's were tailored for data scientists.",
