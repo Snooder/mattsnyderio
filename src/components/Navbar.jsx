@@ -5,6 +5,7 @@ import NavbarDropdown from "./NavbarDropdown";
 import EggAnimation from "./EggAnimation";
 import LootboxContainer from "./LootboxContainer";
 import { useEggContext } from "../context/EggContext";
+import { logEvent } from "../analytics";
 
 const Navbar = ({ active, setActive }) => {
   const [menuOpen, setMenuOpen] = useState(false);

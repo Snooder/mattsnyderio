@@ -6,6 +6,7 @@ import ProgressButton from './progressButton';
 import ProgressVideo from './ProgressVideo';
 import Confetti from 'react-confetti';
 import { technologySentences } from '../data';
+import { logEvent } from "../analytics"; // Import logEvent from analytics.js
 
 const LootboxContainer = ({ experiences }) => {
     const [showText, setShowText] = useState(false);
@@ -27,6 +28,7 @@ const LootboxContainer = ({ experiences }) => {
     };
 
     const handleClick = () => {
+        logEvent("Lootbox", "click", "Lootbox opened");
         setTimeout(() => setIsScaled(false), 200);
     };
 
