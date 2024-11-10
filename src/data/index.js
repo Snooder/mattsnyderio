@@ -104,12 +104,12 @@ const experiences = [
       {
         name: "FaGit",
         label: "Git",
-        description: "Developed Git CLI shortcuts for team use that enabled faster code branching and effortless code-reviews."
+        description: "Shared Git CLI shortcuts for team use that enabled faster code branching and effortless code-reviews."
       },
       {
         name: "FaGithub",
         label: "GitHub",
-        description: "Instituted a peer-review system for the betterment of derisking technical Bus Factor."
+        description: "Led a new peer-review system for the betterment of derisking technical mistakes."
       }
     ]
   },
@@ -129,7 +129,7 @@ const experiences = [
       {
         name: "FaShopify",
         label: "Shopify",
-        description: "Built tailored eCommerce solutions on the Shopify platform and automated over a dozen small businesses  to utilize a subscription-based model for their services."
+        description: "Sold tailored eCommerce solutions for the Shopify platform which automated a subscription-based model with no extra infrastructure."
       },
       {
         name: "FaDatabase",
@@ -139,12 +139,12 @@ const experiences = [
       {
         name: "FaHtml5",
         label: "HTML",
-        description: "Crafted dynamic and visually appealing interfaces with HTML and Shopify's Liquid syntax."
+        description: "Crafted dynamic templates that were visually appealing interfaces using CSS, HTML, and Shopify's Liquid syntax."
       },
       {
         name: "FaLinux",
         label: "Linux",
-        description: "Hosted remote services via Linux, allowing a robust and scalable infrastructure as more clients were onboarded."
+        description: "Learned how to run remote services via Linux, allowing a robust and scalable infrastructure as more clients were onboarded."
       }
     ]
   },
@@ -168,7 +168,7 @@ const experiences = [
       {
         name: "FaHtml5",
         label: "HTML",
-        description: "Designed and implemented a user-friendly and visually appealing front-end interface for the university's online conference."
+        description: "Designed and implemented a user-friendly and visually appealing front-end interface for the Rutgers University's online tele-conference."
       },
       {
         name: "FaCss3",
@@ -178,12 +178,12 @@ const experiences = [
       {
         name: "FaBootstrap",
         label: "Bootstrap",
-        description: "Employed Bootstrap to develop a responsive and cross-platform compatible website, ensuring a consistent and optimal user experience across different devices."
+        description: "Employed Bootstrap to develop a responsive and cross-platform compatible platform for Professors scheduling meetings, ensuring a consistent and optimal user experience across different devices."
       },
       {
         name: "FaDrupal",
         label: "Drupal",
-        description: "Played a key role in developing and maintaining internal employee tools using Drupal, resulting in streamlined workflows and enhanced efficiency."
+        description: "Played a key role in developing internal employee tools using Drupal, resulting in friendly workflows and enhanced efficiency."
       }
     ]
   },
@@ -195,8 +195,8 @@ const experiences = [
     date: "2016 - 2020",
     details: [
       "Earned a Bachelor of Science in Computer Science, gaining proficiency in software engineering, machine learning, and data analysis.",
-      "Worked on projects involving data analysis and computer architecture.",
-      "Minored in Digital Communications and Information Management (DCIM), focusing on the intersection of digital technology and communication."
+      "Minored in Digital Communications and Information Management (DCIM), focusing on the intersection of digital technology and communication.",
+      "Worked on projects ranging from Machine Learning, System Architecture, Computer Engineering, and Algorithms.",
     ],
     icons: [
       {
@@ -223,13 +223,13 @@ const saasProducts = [
   {
     name: "StarFetcher: OSRS Shooting Star Tracker",
     description:
-      "Starfetcher is a best-in-class, fully personalized platform designed to help Old School RuneScape (OSRS) players efficiently track and scout the highest-priority shooting stars.",
+      "Starfetcher is a platform designed to help Old School RuneScape (OSRS) players efficiently track and scout the highest-priority stars that will imporve their mining level.",
     image: starfetcher_dashboard,
   },
   {
     name: "BrightSpot: Social Merchandising Plugin",
     description:
-      "A SaaS tool developed to help writers and editors expand their social reach by dynamically promoting the popular content across publication platforms.",
+      "A tool developed to help writers and editors expand their social reach by dynamically promoting the popular content across publication platforms.",
     image: arizent,
     flowchartImage: brightspot,
   },
