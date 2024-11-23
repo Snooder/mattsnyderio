@@ -2,7 +2,7 @@ import {
   arizent,
   bethere,
   paywall,
-  starfetcher_dashboard, brightspot, flatiron_logo,arizent_logo,freelance_logo,rutgers_logo,newbrunswick_logo
+  starfetcher_dashboard, brightspot, flatiron_logo,arizent_logo,freelance_logo,rutgers_logo,newbrunswick_logo, starfetcher_mobile, weatherornot_laptop
 } from "../assets";
 
 import {
@@ -27,6 +27,127 @@ export const navLinks = [
     title: "Contact",
   },
 ];
+
+const latestExperiences = [
+  {
+    title: "WeatherOrNot",
+    description: `
+      WeatherOrNot is my next big vision for a travel platform that seamlessly integrates 
+      GPT-powered weather forecasting with travel planning. I wanted to solve a common challenge: finding 
+      the perfect trip that aligns with both great weather and affordable travel deals. My mission 
+      was to create a platform that simplifies planning while sparking excitement for exploration.
+   `,
+    details: `
+      The platform is powered by React for interactive front-end, Node.js for robust 
+      server-side logic, and Hostinger for simple, reliable hosting. I incorporated OpenAI's GPT technology 
+      to provide weather predictions and personalized travel recommendations, ensuring users get 
+      actionable insights while planning their adventures. This project challenged me to bring 
+      together complex systems in a way that feels effortless for the user.
+    `,
+    finalNote: `
+      WeatherOrNot is a heavy challenge, but integrates well with my passion for innovation and travel. I built this platform 
+      to inspire people to explore the world while taking the guesswork out of planning. Every feature 
+      is designed to enhance the user journey, blending technology with the joy of discovering new 
+      destinations.
+    `,
+    photo: weatherornot_laptop, // Replace with actual photo path
+    icons: [
+      {
+        name: "FaReact",
+        label: "React",
+        description: "Crafted the user interface with React to deliver a smooth and engaging experience."
+      },
+      {
+        name: "FaNodeJs",
+        label: "Node.js",
+        description: "Developed the server-side logic using Node.js to ensure fast and reliable performance."
+      },
+      {
+        name: "FaCloud",
+        label: "Hostinger",
+        description: "Deployed the platform on Hostinger, providing stable and cost-effective hosting solutions."
+      },
+      {
+        name: "FaBrain",
+        label: "OpenAI",
+        description: "Integrated GPT technology to deliver smart weather forecasts and personalized travel suggestions."
+      },
+    ],
+  },
+  {
+    title: "Starfetcher",
+    description: `
+      Starfetcher represents my first significant step in building a platform that genuinely 
+      connects with its users. This platform is developed for a retro online game I played growing up.
+      My goal was to create an intuitive and enjoyable experience where 
+      users could log in, define their preferences, and explore features tailored to their likes 
+      and dislikes. I wanted to ensure that every interaction felt personal and meaningful, providing 
+      users with something truly unique.
+    `,
+    details: `
+      Starfetcher used a variety of tools chosen to improve my system design skills as well as craft
+      a seamless user experience. React on the front-end, Python for web scraping, Golang for a fast server, 
+      and AWS to provide a scalable and secure infrastructure. Every decision, 
+      from technology selection to feature design, was driven by my mission to create a platform 
+      that evolves with its users' needs and creates a lasting impression.
+    `,
+    finalNote: `
+      Starfetcher is more than just a project—it's a reflection of my commitment to building 
+      platforms that resonate with users. My aim is to blend technology and empathy, ensuring 
+      that every feature serves a purpose and brings value to those who use it.
+    `,
+    photo: starfetcher_mobile, // Replace with actual photo path
+    icons: [
+      {
+        name: "FaReact",
+        label: "React",
+        description: "Designed and implemented the front-end with React, ensuring a dynamic and responsive user interface."
+      },
+      {
+        name: "FaPython",
+        label: "Python",
+        description: "Built backend services in Python, enabling secure user authentication and personalized data processing."
+      },
+      {
+        name: "FaGolang",
+        label: "Go",
+        description: "Developed efficient microservices using Go to handle high-performance requests and user interactions."
+      },
+      {
+        name: "FaAws",
+        label: "AWS",
+        description: "Deployed the platform on AWS, leveraging its scalability and security to deliver a reliable user experience."
+      },
+    ],
+  },
+];
+
+const IconShadows = {
+  FaPython: 'group-hover:drop-shadow-[0_0_20px_rgba(0,128,255,0.9)]', // Blue
+  FaAws: 'group-hover:drop-shadow-[0_0_20px_rgba(255,153,0,0.9)]', // Orange
+  FaDocker: 'group-hover:drop-shadow-[0_0_20px_rgba(0,171,223,0.9)]', // Teal
+  FaGit: 'group-hover:drop-shadow-[0_0_20px_rgba(255,69,0,0.9)]', // Red
+  FaGithub: 'group-hover:drop-shadow-[0_0_20px_rgba(0,0,0,0.9)]', // Black
+  FaHtml5: 'group-hover:drop-shadow-[0_0_20px_rgba(227,76,38,0.9)]', // Orange-Red
+  FaCss3: 'group-hover:drop-shadow-[0_0_20px_rgba(38,77,228,0.9)]', // Blue
+  FaLinux: 'group-hover:drop-shadow-[0_0_20px_rgba(255,209,0,0.9)]', // Yellow
+  FaDrupal: 'group-hover:drop-shadow-[0_0_20px_rgba(0,121,193,0.9)]', // Cyan
+  FaJava: 'group-hover:drop-shadow-[0_0_20px_rgba(176,114,25,0.9)]', // Brown
+  SiJenkins: 'group-hover:drop-shadow-[0_0_20px_rgba(0,77,64,0.9)]', // Dark Green
+  SiPytorch: 'group-hover:drop-shadow-[0_0_20px_rgba(255,114,0,0.9)]', // Orange
+  SiTerraform: 'group-hover:drop-shadow-[0_0_20px_rgba(121,70,252,0.9)]', // Purple
+  SiMysql: 'group-hover:drop-shadow-[0_0_20px_rgba(0,96,128,0.9)]', // Dark Cyan
+  FaDatabase: 'group-hover:drop-shadow-[0_0_20px_rgba(39,174,96,0.9)]', // Green
+  FaShopify: 'group-hover:drop-shadow-[0_0_20px_rgba(84,184,84,0.9)]', // Bright Green
+  FaBootstrap: 'group-hover:drop-shadow-[0_0_20px_rgba(128,0,128,0.9)]', // Purple
+  FaEgg: 'group-hover:drop-shadow-[0_0_20px_rgba(255,223,0,0.9)]', // Yellow
+  MdOutlineEgg: 'group-hover:drop-shadow-[0_0_20px_rgba(255,192,0,0.9)]', // Gold
+  FaReact: 'group-hover:drop-shadow-[0_0_20px_rgba(97,218,251,0.9)]', // React Blue
+  FaGolang: 'group-hover:drop-shadow-[0_0_20px_rgba(0,173,216,0.9)]', // Cyan
+  FaNodeJs: 'group-hover:drop-shadow-[0_0_20px_rgba(102,204,102,0.9)]', // Green
+  FaCloud: 'group-hover:drop-shadow-[0_0_20px_rgba(135,206,235,0.9)]', // Sky Blue
+  FaBrain: 'group-hover:drop-shadow-[0_0_20px_rgba(255,105,180,0.9)]', // Pink
+};
 
 const experiences = [
   {
@@ -520,5 +641,5 @@ const technologySentences = {
 };
 
 
-export { technologySentences, experiences, saasProducts, events, githubRepos };
+export { technologySentences, experiences, saasProducts, events, githubRepos, latestExperiences, IconShadows };
 

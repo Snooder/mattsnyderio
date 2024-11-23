@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import ExperienceIcons from "./ExperienceIcons";
 import { experiences } from "../data";
 import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
 import { useInView } from "react-intersection-observer";
-import JiggleSpinComponent from "./JiggleSpinComponent";
 import { logEvent } from "../analytics"; // Import the logEvent function
 import ExperienceDetailPanel from './ExperienceDetailPanel'; // Import the new component
 
 const Experience = () => {
-  const [selectedExperience, setSelectedExperience] = useState(experiences[0]);
-  const [openedExperiences, setOpenedExperiences] = useState(new Set([experiences[0].title]));
+  // Start with the Flatiron Health experience selected
+  const initialExperience = experiences.find(
+    (exp) => exp.company_name === "Flatiron Health"
+  );
+  const [selectedExperience, setSelectedExperience] = useState(initialExperience);
+  const [openedExperiences, setOpenedExperiences] = useState(new Set([initialExperience.title]));
 
   const handleSelectExperience = (experience) => {
     setSelectedExperience(experience);
@@ -30,9 +32,7 @@ const Experience = () => {
       <motion.div
         ref={ref}
         className="xs:text-left xs:px-20 sm:px-20"
-        variants={textVariant()}
-        initial="hidden"
-        animate={inView ? 'show' : 'hidden'}
+
       >
         <h2
           className="text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold filter drop-shadow-[0_0_20px_rgba(0,255,0,0.8)]" 
@@ -43,10 +43,33 @@ const Experience = () => {
 
       {/* Parent Grid Layout */}
       <div className="flex flex-col sm:flex-row h-full mt-8 gap-4">
-        {/* Left Column (Experience Cards) */}
-        <div className="w-full sm:w-4/12 h-auto sm:h-full pb-6 pl-5 pr-5">
+        {/* Left Column */}
+        <div className="w-full sm:w-4/12 h-auto sm:h-full pb-6 pl-5 pr-5 flex flex-col gap-4">
+          {/* "What are you building now?" Section */}
+          <div
+            className={`p-4 cursor-pointer border-l-4 transition duration-300 ease-in-out rounded-lg ${
+              "Latest" === selectedExperience.title
+                ? 'bg-green-800 text-yellow-400 border-orange-500 shadow-[0_0_20px_orange]'
+                : openedExperiences.has("Latest")
+                ? 'bg-green-800 text-orange-500 border-orange-500'
+                : 'bg-gray-600 text-gray-300 border-transparent'
+            } hover:text-orange-400 hover:border-yellow-500 hover:shadow-[0_0_20px_orange]`}
+            onClick={() =>
+              handleSelectExperience({ title: "Latest", company_name: "", date: "" })
+            }
+            
+          >
+            <h3 className="text-xl sm:text-3xl md:text-4xl font-bold text-center">
+              What's Matt building now?
+            </h3>
+            <p className="text-base sm:text-lg md:text-xl text-center mt-2">
+              October 2023 - Present
+            </p>
+          </div>
+
+          {/* Experience Cards */}
           <div className="grid grid-cols-3 sm:grid-cols-1 gap-4">
-            {experiences.slice(0, 6).map((experience, index) => (
+            {experiences.map((experience, index) => (
               <div
                 key={index}
                 className={`p-4 cursor-pointer border-l-4 transition duration-300 ease-in-out rounded-lg ${
@@ -54,7 +77,7 @@ const Experience = () => {
                     ? 'bg-gray-800 text-white border-yellow-500 shadow-[0_0_20px_gold]'
                     : openedExperiences.has(experience.title)
                     ? 'bg-gray-800 text-white border-transparent shadow-md'
-                    : 'bg-gray-400 text-slate-600 border-transparent'
+                    : 'bg-gray-600 text-slate-200 border-transparent'
                 } hover:text-white hover:border-yellow-500 hover:shadow-[0_0_20px_gold]`}
                 onClick={() => handleSelectExperience(experience)}
               >
@@ -66,9 +89,9 @@ const Experience = () => {
           </div>
         </div>
 
-        {/* Right Column - Pass selectedExperience to the new component */}
+        {/* Right Column */}
         <div className="w-[100vw] sm:w-8/12 h-auto sm:h-full xs:pl-10 sm:pl-0 sm:pr-5">
-          <ExperienceDetailPanel selectedExperience={selectedExperience} />
+          <ExperienceDetailPanel selectedExperience={selectedExperience} openedExperiences={openedExperiences}/>
         </div>
       </div>
     </div>

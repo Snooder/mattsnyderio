@@ -61,7 +61,7 @@ const Navbar = ({ active, setActive }) => {
               transform: isTooltipVisible ? 'translateY(0)' : 'translateY(10px)',
             }}
           >
-            Reach 70% to unlock your prize!
+            Reach 70% to bypass the easter egg hunt!
           </div>
         )}
 
