@@ -13,7 +13,7 @@ const Lootbox = ({ onWin }) => {
         if (!flashing) {
             setFlashing(true);
             setAnimationClass('');
-            const flashDuration = 8000;
+            const flashDuration = 5000;
             const startTime = Date.now();
             const initialFlashInterval = 800;
             let jiggleStarted = false;
@@ -34,7 +34,7 @@ const Lootbox = ({ onWin }) => {
 
                 if (elapsed > 2000) {
                     const remainingTime = calculateRemainingTime(startTime, flashDuration);
-                    const newSpeed = Math.max(remainingTime / 20, 600);
+                    const newSpeed = Math.max(remainingTime / 20, 400);
 
                     clearInterval(flashInterval);
                     setTimeout(() => {
