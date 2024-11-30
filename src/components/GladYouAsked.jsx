@@ -11,9 +11,9 @@ const GladYouAsked = (openedExperiences) => {
       <div className="text-center mb-6">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Glad you asked!</h2>
         <p className="text-base sm:text-lg md:text-xl mt-2">
-          I am a born software engineer with a passion for using the latest tech to level up web
+          I am a born inventor with a passion for using the latest tech to level up web
           experiences. Over the last year, I've challenged myself to use this generation's latest and
-          greatest tools to see if I can make magic happen.
+          greatest modern tools to see if I can make magic happen.
         </p>
       </div>
 
