@@ -11,7 +11,7 @@ const ProgressEggHunt = () => {
     { label: "Mystery", url: "" },
     { label: "Hero", url: "#hero" },
     { label: "Experience", url: "#experience" },
-    { label: "SaaS", url: "#saas" },
+    { label: "Recent Projects", url: "#projects" },
     { label: "Github", url: "#github" },
     { label: "Events", url: "#events" },
   ];
@@ -66,7 +66,7 @@ const ProgressEggHunt = () => {
         )}
 
         {/* Render all eggs */}
-        <div className="flex gap-4">
+        <div className="grid gap-14 grid-cols-1 grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
           {eggColors.map((color, index) => (
             <ProgressEgg
               key={index}

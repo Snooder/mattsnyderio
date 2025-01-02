@@ -26,11 +26,12 @@ export const logPageView = () => {
   console.log(`Page View Logged | Page Path: ${page_path}`);
 };
 
-// Log custom events (maintaining same function signature)
-export const logEvent = (category, action, label) => {
-  window.gtag("event", action, {
-    event_category: category,
-    event_label: label,
-  });
-  console.log(`Event Logged | Category: ${category}, Action: ${action}, Label: ${label}`);
+// Log custom key events for GA4
+export const logEvent = (eventName, params = {}) => {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, params);
+    console.log(`Key Event Logged | Event Name: ${eventName}`, params);
+  } else {
+    console.warn("Google Analytics gtag is not initialized.");
+  }
 };

@@ -68,7 +68,7 @@ const Experience = () => {
           </div>
 
           {/* Experience Cards */}
-          <div className="grid grid-cols-3 sm:grid-cols-1 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-1 gap-4">
             {experiences.map((experience, index) => (
               <div
                 key={index}
@@ -81,9 +81,9 @@ const Experience = () => {
                 } hover:text-white hover:border-yellow-500 hover:shadow-[0_0_20px_gold]`}
                 onClick={() => handleSelectExperience(experience)}
               >
-                <h3 className="text-[8px] xs:text-xs sm:text-base">{experience.title}</h3>
-                <p className="text-[8px] xs:text-xs sm:text-base">{experience.company_name}</p>
-                <p className="text-[8px] xs:text-xs sm:text-base">{experience.date}</p>
+                <h3 className="text-[5vw] md:text-[2vw] lg:text-[1.25vw] text-base">{experience.title}</h3>
+                <p className="text-[4vw] md:text-[2vw] lg:text-[1vw] text-base">{experience.company_name}</p>
+                <p className="text-[4vw] md:text-[2vw] lg:text-[1vw] text-base">{experience.date}</p>
               </div>
             ))}
           </div>

@@ -52,7 +52,7 @@ import JiggleSpinComponent from './JiggleSpinComponent';
     FaBrain
   };
   
-  const ExperienceIcons = ({ icons = [], showDescription=true }) => (
+  const ExperienceIcons = ({ icons = [], showDescription=true, size=100 }) => (
       <div className="flex flex-wrap justify-center space-x-4">
         {icons.length > 0 ? (
           icons.map((icon) => {
@@ -73,14 +73,14 @@ import JiggleSpinComponent from './JiggleSpinComponent';
                     {icon.name === 'FaShopify' ? (
                       <JiggleSpinComponent shadowColor="rgba(0, 255, 0, 0.8)" eggColor="green">
                         <IconComponent
-                          size={100}
+                          size={size}
                           className="text-white filter drop-shadow-lg transition-all duration-300"
                         />
                       </JiggleSpinComponent>
                     ) : (
                       <div className="group">
                         <IconComponent
-                          size={100}
+                          size={size}
                           className={`text-white filter drop-shadow-lg transition-all duration-300 group-hover:filter ${
                             shadowClass || '' // Apply the specific hover shadow from IconShadows
                           }`}

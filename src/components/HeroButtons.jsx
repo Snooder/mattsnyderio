@@ -23,10 +23,10 @@ const HeroButtons = ({active, setActive}) => {
           Experience
         </button>
         <button
-          onClick={() => handleButtonClick("saas")}
+          onClick={() => handleButtonClick("recentProjects")}
           className="bg-opacity-80 bg-gray-800 text-white font-bold py-8 px-4 rounded-lg hover:bg-gray-700 transition shadow-[0_0_10px_rgba(128,128,128,0.6)] hover:shadow-[0_0_15px_rgba(255,215,0,0.8),0_0_30px_rgba(255,215,0,0.6)]"
         >
-          SaaS Products
+          Recent Projects
         </button>
       </div>
 

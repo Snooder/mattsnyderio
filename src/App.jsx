@@ -6,7 +6,7 @@ import GithubShowcase from "./components/GithubShowcase";
 import ProgressEggHunt from "./components/ProgressEggHunt";
 import { initGA, logPageView } from "./analytics";
 import { EggProvider } from "./context/EggContext"; // Import EggProvider
-import SaaSProducts from "./components/SaaSProducts";
+import RecentProjects from "./components/RecentProjects";
 
 const App = () => {
   const wrapperRef = useRef(null);
@@ -31,8 +31,8 @@ const App = () => {
             <section id="experience" className="relative z-30 mb-8 bg-primary">
               <Experience />
             </section>
-            <section id="saas" className="relative z-30 mb-8 bg-primary">
-              <SaaSProducts />
+            <section id="projects" className="relative z-30 mb-8 bg-primary">
+              <RecentProjects />
             </section>
             <section id="github" className="relative z-30 mb-8 bg-primary">
               <GithubShowcase />

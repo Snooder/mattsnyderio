@@ -32,23 +32,13 @@ const latestExperiences = [
   {
     title: "WeatherOrNot",
     description: `
-      WeatherOrNot is my next big vision for a travel platform that seamlessly integrates 
-      GPT-powered weather forecasting with travel planning. I wanted to solve a common challenge: finding 
-      the perfect trip that aligns with both great weather and affordable travel deals. My mission 
-      was to create a platform that simplifies planning while sparking excitement for exploration.
-   `,
+     WeatherOrNot is a travel platform that combines GPT-powered weather forecasting with trip planning. It helps users find trips that align with good weather and affordable travel deals. The goal is to make planning simple while encouraging exploration.
+    `,
     details: `
-      The platform is powered by React for interactive front-end, Node.js for robust 
-      server-side logic, and Hostinger for simple, reliable hosting. I incorporated OpenAI's GPT technology 
-      to provide weather predictions and personalized travel recommendations, ensuring users get 
-      actionable insights while planning their adventures. This project challenged me to bring 
-      together complex systems in a way that feels effortless for the user.
+      The platform uses React for the interactive interface, Node.js for backend functionality, and Hostinger for reliable hosting. OpenAI's GPT provides weather forecasts and personalized travel recommendations, giving users practical insights for their plans. Building this project required integrating several systems to create a seamless user experience.
     `,
     finalNote: `
-      WeatherOrNot is a heavy challenge, but integrates well with my passion for innovation and travel. I built this platform 
-      to inspire people to explore the world while taking the guesswork out of planning. Every feature 
-      is designed to enhance the user journey, blending technology with the joy of discovering new 
-      destinations.
+     WeatherOrNot is designed to inspire travel while simplifying the process. Each feature focuses on making planning easier and more enjoyable, ensuring users can focus on discovering new destinations.
     `,
     photo: weatherornot_laptop, // Replace with actual photo path
     icons: [
@@ -77,24 +67,13 @@ const latestExperiences = [
   {
     title: "Starfetcher",
     description: `
-      Starfetcher represents my first significant step in building a platform that genuinely 
-      connects with its users. This platform is developed for a retro online game I played growing up.
-      My goal was to create an intuitive and enjoyable experience where 
-      users could log in, define their preferences, and explore features tailored to their likes 
-      and dislikes. I wanted to ensure that every interaction felt personal and meaningful, providing 
-      users with something truly unique.
+     Starfetcher is a platform designed for a retro online game I enjoyed growing up. It allows users to log in, set preferences, and explore features tailored to their likes and dislikes. The goal was to create an intuitive experience that feels personal and engaging.
     `,
     details: `
-      Starfetcher used a variety of tools chosen to improve my system design skills as well as craft
-      a seamless user experience. React on the front-end, Python for web scraping, Golang for a fast server, 
-      and AWS to provide a scalable and secure infrastructure. Every decision, 
-      from technology selection to feature design, was driven by my mission to create a platform 
-      that evolves with its users' needs and creates a lasting impression.
+     The project uses React for the frontend, Python for web scraping, Golang for a fast backend, and AWS for scalable hosting. Every technical choice was made to ensure the platform performs well and adapts to user needs.
     `,
     finalNote: `
-      Starfetcher is more than just a project—it's a reflection of my commitment to building 
-      platforms that resonate with users. My aim is to blend technology and empathy, ensuring 
-      that every feature serves a purpose and brings value to those who use it.
+     Starfetcher reflects my focus on building systems that connect with users. Each feature is built with purpose, blending technology with user feedback to create a meaningful experience.
     `,
     photo: starfetcher_mobile, // Replace with actual photo path
     icons: [
@@ -235,7 +214,7 @@ const experiences = [
     ]
   },
   {
-    title: "SaaS Consultant",
+    title: "Shopify Engineer",
     company_name: "Freelance",
     companyLogo: freelance_logo,
     location: "Hoboken, NJ",
@@ -274,7 +253,7 @@ const experiences = [
     company_name: "Rutgers University",
     companyLogo: rutgers_logo,
     location: "New Brunswick, NJ",
-    date: "2018",
+    date: "2018 - 2019",
     details: [
       "Integrated new processes to enhance UX design using open-source software, Drupal, for internal employee modules.",
       "Developed bash scripts to automate data downloads on Unix systems.",
@@ -340,7 +319,7 @@ const experiences = [
 ];
 
 
-const saasProducts = [
+const recentProjects = [
   {
     name: "StarFetcher: OSRS Shooting Star Tracker",
     description:
@@ -636,10 +615,10 @@ const technologySentences = {
   React: [
     "Matt built this site using React, thank you for stopping by!",
     "Matt has developed several high functioning platforms with React's efficient architecture.",
-    "Matt utilizes React to create SaaS products that cater to the best possibilities in user experience."
+    "Matt utilizes React to create products that cater to the best possibilities in user experience."
   ]
 };
 
 
-export { technologySentences, experiences, saasProducts, events, githubRepos, latestExperiences, IconShadows };
+export { technologySentences, experiences, recentProjects, events, githubRepos, latestExperiences, IconShadows };
 

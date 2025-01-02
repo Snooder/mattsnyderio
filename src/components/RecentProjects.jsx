@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import { textVariant } from "../utils/motion";
-import { saasProducts } from "../data";
+import { recentProjects } from "../data";
 import { SectionWrapper } from "../hoc";
 import JiggleSpinComponent from "./JiggleSpinComponent"; // Import JiggleSpinComponent
 
-// ProjectCard Component for individual SaaS projects
+// ProjectCard Component for individual recent projects
 const ProjectCard = ({
   index,
   name,
@@ -103,8 +103,8 @@ const ProjectCard = ({
   );
 };
 
-const SaaSProducts = () => {
-  const [saasRef, saasInView] = useInView({
+const RecentProjects = () => {
+  const [projectsRef, projectInView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
@@ -113,22 +113,22 @@ const SaaSProducts = () => {
     <div className="text-center p-6 md:p-12">
       {/* SaaS Products Section */}
       <motion.div
-        ref={saasRef}
+        ref={projectsRef}
         variants={textVariant()}
         initial="hidden"
-        animate={saasInView ? "show" : "hidden"}
+        animate={projectInView ? "show" : "hidden"}
         className="xs:text-left xs:px-20 sm:px-20 mb-8"
       >
         <h2 className="text-md text-center xs:text-md sm:text-4xl md:text-5xl font-bold filter drop-shadow-[0_0_30px_rgba(255,0,0,1)]">
-          SaaS Products
+          Recent Projects
         </h2>
       </motion.div>
 
       {/* SaaS Product Cards */}
       <div className="mt-10 flex flex-col gap-10 md:gap-20">
-        {saasProducts.map((product, index) => (
+        {recentProjects.map((product, index) => (
           <ProjectCard
-            key={`saas-${index}`}
+            key={`projects-${index}`}
             index={index}
             name={product.name}
             description={product.description}
@@ -141,4 +141,4 @@ const SaaSProducts = () => {
   );
 };
 
-export default SectionWrapper(SaaSProducts, "SaaSProducts");
+export default SectionWrapper(RecentProjects, "RecentProjects");

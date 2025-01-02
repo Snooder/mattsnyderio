@@ -35,12 +35,12 @@ const Contact = () => {
         className="w-full"
       >
         {/* Heading */}
-        <h3 className={`${styles.sectionText} text-2xl sm:text-4xl md:text-5xl font-bold mb-6`}>
+        <h3 className={`${styles.sectionText} text-[6vw] md:text-[2vw] font-bold mb-6`}>
           Want to get in touch?
         </h3>
 
         {/* Contact Information with Icons in a Row */}
-        <div className="text-lg sm:text-xl md:text-2xl text-white font-medium flex items-center justify-center space-x-8 mb-8">
+        <div className="text-[6vw] md:text-[2vw] text-white font-medium flex items-center justify-center space-x-2 md:space-x-8 mb-8">
           {/* Email Button */}
           <a
             href="mailto:matthew.swe.snyder@gmail.com"
@@ -67,7 +67,7 @@ const Contact = () => {
         </div>
 
         {/* Smaller Links Row with Full Text */}
-        <div className="text-sm sm:text-base md:text-lg text-gray-400 font-semibold flex items-center justify-center space-x-6">
+        <div className="text-gray-400 font-semibold flex flex-col lg:flex-row items-center justify-center space-x-6">
           {/* LinkedIn Small Link */}
           <a
             href="https://www.linkedin.com/in/mattcsnyder/"
@@ -77,8 +77,8 @@ const Contact = () => {
             onClick={handleLinkClick} // Use the universal click handler
             className="flex items-center space-x-2 hover:text-yellow-400 transition-all duration-300"
           >
-            <FaLinkedin className="text-xl" />
-            <span>/mattcsnyder</span> {/* Displaying the LinkedIn profile handle */}
+            <FaLinkedin className="text-[5vw] lg:text-[2vw]" />
+            <span className="text-[5vw] lg:text-[2vw]">/mattcsnyder</span> {/* Displaying the LinkedIn profile handle */}
           </a>
 
           {/* GitHub Small Link */}
@@ -90,8 +90,8 @@ const Contact = () => {
             onClick={handleLinkClick} // Use the universal click handler
             className="flex items-center space-x-2 hover:text-yellow-400 transition-all duration-300"
           >
-            <FaGithub className="text-xl" />
-            <span>/snooder</span> {/* Displaying the GitHub username */}
+            <FaGithub className="text-[5vw] lg:text-[2vw]" />
+            <span className="text-[5vw] lg:text-[2vw]">/snooder</span> {/* Displaying the GitHub username */}
           </a>
 
           {/* Email Small Link */}
@@ -101,8 +101,8 @@ const Contact = () => {
             onClick={handleLinkClick} // Use the universal click handler
             className="flex items-center space-x-2 hover:text-yellow-400 transition-all duration-300"
           >
-            <FaEnvelope className="text-xl" />
-            <span>matthew.swe.snyder@gmail.com</span> {/* Displaying the full email address */}
+            <FaEnvelope className="text-[5vw] lg:text-[2vw]" />
+            <span className="text-[5vw] lg:text-[2vw]">matthew.swe.snyder@gmail.com</span> {/* Displaying the full email address */}
           </a>
         </div>
       </motion.div>

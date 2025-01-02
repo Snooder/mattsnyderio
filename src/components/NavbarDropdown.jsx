@@ -9,7 +9,7 @@ const NavbarDropdown = ({ active, setActive, menuOpen, setMenuOpen }) => {
   const navLinks = [
     { id: "hero", title: "Home" },
     { id: "experience", title: "Experience" },
-    { id: "saas", title: "SaaS" },
+    { id: "projects", title: "Projects" },
     { id: "github", title: "GitHub" },
     { id: "events", title: "Events" },
     { id: "contact", title: "Contact" },
