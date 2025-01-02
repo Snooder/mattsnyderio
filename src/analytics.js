@@ -23,14 +23,14 @@ export const initGA = () => {
 export const logPageView = () => {
   const page_path = window.location.pathname; // Get current page path
   window.gtag("event", "page_view", { page_path });
-  console.log(`Page View Logged | Page Path: ${page_path}`);
+  // console.log(`Page View Logged | Page Path: ${page_path}`);
 };
 
 // Log custom key events for GA4
 export const logEvent = (eventName, params = {}) => {
   if (typeof window.gtag === "function") {
     window.gtag("event", eventName, params);
-    console.log(`Key Event Logged | Event Name: ${eventName}`, params);
+   //  console.log(`Key Event Logged | Event Name: ${eventName}`, params);
   } else {
     console.warn("Google Analytics gtag is not initialized.");
   }
