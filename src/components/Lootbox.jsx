@@ -60,7 +60,7 @@ const Lootbox = ({ onWin }) => {
                             setTimeout(() => {
                                 setFlashing(false);
                                 setCurrentIcon(null);
-                            }, 4000);
+                            }, 6000);
                         }, remainingTime);
                     }, newSpeed);
                 }
@@ -69,7 +69,7 @@ const Lootbox = ({ onWin }) => {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', margin: '5px', position: 'relative' }}>
+        <div class="rounded-lg bg-gray-600 bg-opacity-90" style={{ display: 'flex', justifyContent: 'center', margin: '5px', position: 'relative' }}>
             <div
                 className={`lootbox ${animationClass}`}
                 onClick={handleFlash}

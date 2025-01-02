@@ -58,7 +58,7 @@ const LootboxContainer = ({ experiences }) => {
         setTimeout(() => {
             setShowText(false);
             setSetNewIcon(false);
-        }, 4000);
+        }, 6000);
     };
 
     const handlePrizeButtonClick = () => {
@@ -164,6 +164,7 @@ const LootboxContainer = ({ experiences }) => {
 
                     {/* Bottom text displaying random sentence */}
                     <div
+                        class="rounded-lg bg-gray-600 bg-opacity-90"
                         style={{
                             height: showText ? 'auto' : '0px',
                             overflow: 'hidden',
@@ -174,6 +175,7 @@ const LootboxContainer = ({ experiences }) => {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
+                            padding: showText ? '1vw' : '0px',
                         }}
                     >
                     <h2
