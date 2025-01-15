@@ -19,7 +19,6 @@ Try to find all my hidden eggs, there's a special surprise waiting for you at th
 - JavaScript - Programming language!
 - React - JavaScript library for building user interfaces!
 - Tailwind - CSS framework!
-- Three.js - Animated 3D graphics!
 - Framer Motion - Interactive animations!
 - Hostinger - Web hosting platform!
 - GitHub - Version control & CI/CD!
