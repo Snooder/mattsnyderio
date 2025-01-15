@@ -150,27 +150,27 @@ const experiences = [
       {
         name: "FaAws",
         label: "AWS",
-        description: "Monitored multiple server fleets of EC2, RDS, and ELB services that enabled Data Scientists to get model results back at record speeds."
+        description: "Monitored multiple server fleets of EC2, RDS, and ELB services that enabled Data Scientists to get model results back at record speeds while also looking out for improved ways to monitor experiments."
       },
       {
         name: "FaDocker",
         label: "Docker",
-        description: "Packaged Python, Jupyter, and ML dependencies into Docker containers, allowing individual models to be tested before pushing to production."
+        description: "Packaged custom built CLIs built with Python and model prediction dependencies into Docker containers, allowing individual models to be thoroughly tested before pushing to production."
       },
       {
         name: "SiJenkins",
         label: "Jenkins",
-        description: "Upgraded build pipelines with automatic testing via SonarCube, rigorously reduced build times by integrating with Jenkins Agents."
+        description: "Upgraded build pipelines with automatic testing via SonarCube, while simplifying build processes by integrating with Jenkins Agents."
       },
       {
         name: "SiPytorch",
         label: "PyTorch",
-        description: "Routinely reviewed dozens of PyTorch models for breaking changes upon dependency upgrades eg. data drift and regression testing."
+        description: "Routinely reviewed PyTorch models for breaking changes upon dependency upgrades to safely handle unexpected occurences eg. data drift and regression testing."
       },
       {
         name: "SiTerraform",
         label: "Terraform",
-        description: "Managed scaling of server fleets via Terraform (IoC), ensured platform stability from AWS, Databases, and Monitoring tools."
+        description: "Managed deployments and scaling of server fleets via Terraform (IoC), ensured platform stability from AWS, Databases, and Monitoring tools."
       }
     ]
   },

@@ -74,7 +74,7 @@ const Hero = ({ active, setActive }) => {
               <p className="text-white text-sm sm:text-base leading-6 mb-6">
                 I'm a creative professional and developer with a strong foundation in programming languages 
                 like Python, JavaScript, and Go. <br></br><br></br>I specialize in building machine learning systems, scalable 
-                backend platforms, and modern front-end applications using frameworks like React and Next.js.
+                backend platforms, and modern front-end applications using frameworks like React and Tailwind.
               </p>
             </div>
 

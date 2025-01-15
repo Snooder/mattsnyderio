@@ -78,6 +78,7 @@ const ProgressEggHunt = () => {
           ))}
         </div>
       </div>
+      
 
       {/* Video Overlay */}
       {showVideo && (
