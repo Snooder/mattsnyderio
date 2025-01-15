@@ -4,6 +4,8 @@
 
 ## Introduction
 
+Come visit, [mattsnyder.io](https://mattsnyder.io/).
+
 I recently forked a developer portfolio website to enhance my minimal portfolio and complement my GitHub profile. 
 
 This site represents the interactive, animated, and visually engaging experience I've been wanting to create for some time. It combines parallax effects and animations while keeping the design intuitive and user-friendly. 
