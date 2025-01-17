@@ -145,32 +145,32 @@ const experiences = [
       {
         name: "FaPython",
         label: "Python",
-        description: "Maintained the Python CLI & API that enabled ML Model Builders to quickly evaluate and test experiments that predict and prevent the onset of life-threatening health conditions."
+        description: "Maintained Python CLI & APIs that enabled ML Model Builders to quickly evaluate and test experiments that predict and prevent the onset of life-threatening health conditions."
       },
       {
         name: "FaAws",
         label: "AWS",
-        description: "Monitored multiple server fleets of EC2, RDS, and ELB services that enabled Data Scientists to get model results back at record speeds while also looking out for improved ways to monitor experiments."
+        description: "Monitored server fleets of EC2, RDS, and ELB services that enabled Data Scientists to get model results back at record speeds while also looking out for improved ways to monitor experiments."
       },
       {
         name: "FaDocker",
         label: "Docker",
-        description: "Packaged custom built CLIs built with Python and model prediction dependencies into Docker containers, allowing individual models to be thoroughly tested before pushing to production."
+        description: "Improved deployment processes of model prediction services onto Docker containers, allowing more modularity in models to be thoroughly tested before pushing to production."
       },
       {
         name: "SiJenkins",
         label: "Jenkins",
-        description: "Upgraded build pipelines with automatic testing via SonarCube, while simplifying build processes by integrating with Jenkins Agents."
+        description: "Upgraded build pipelines with automatic error testing via SonarCube, while simplifying deployment processes."
       },
       {
         name: "SiPytorch",
         label: "PyTorch",
-        description: "Routinely reviewed PyTorch models for breaking changes upon dependency upgrades to safely handle unexpected occurences eg. data drift and regression testing."
+        description: "Routinely tested PyTorch models for breaking changes upon dependency upgrades to safely handle unexpected occurences."
       },
       {
         name: "SiTerraform",
         label: "Terraform",
-        description: "Managed deployments and scaling of server fleets via Terraform (IoC), ensured platform stability from AWS, Databases, and Monitoring tools."
+        description: "Managed deployments and scaling of server fleets via Terraform (IoC), ensuring platform stability from AWS, Databases, and Monitoring tools."
       }
     ]
   },

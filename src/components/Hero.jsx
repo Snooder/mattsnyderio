@@ -72,9 +72,9 @@ const Hero = ({ active, setActive }) => {
 
               {/* Technical Summary Paragraph 1 */}
               <p className="text-white text-sm sm:text-base leading-6 mb-6">
-                I'm a creative professional and developer with a strong foundation in programming languages 
-                like Python, JavaScript, and Go. <br></br><br></br>I specialize in building machine learning systems, scalable 
-                backend platforms, and modern front-end applications using frameworks like React and Tailwind.
+                I'm a creative professional and developer with strong foundations in programming languages 
+                like Python, JavaScript, and Go. <br></br><br></br>I specialize in improving machine learning systems, developing scalable 
+                backend platforms, and exercising modern front-end techniques with React and Tailwind.
               </p>
             </div>
 
